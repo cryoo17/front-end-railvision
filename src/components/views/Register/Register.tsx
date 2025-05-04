@@ -28,12 +28,6 @@ const Register = () => {
             />
             <Input
               type="text"
-              label="Fullname"
-              variant="bordered"
-              autoComplete="off"
-            />
-            <Input
-              type="text"
               label="Username"
               variant="bordered"
               autoComplete="off"
