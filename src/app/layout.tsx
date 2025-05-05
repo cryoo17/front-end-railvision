@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { cn } from "@/utils/cn";
-import { NextUIProvider } from "@nextui-org/react";
-import ReactQueryClientProvider from "@/components/commons/ReactQueryClientProvider";
+import ClientProviders from "@/components/commons/ClientProviders";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,18 +28,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ReactQueryClientProvider>
-          <NextUIProvider>
-            <main
-              className={
-                (cn(geistSans.variable, geistMono.variable),
-                "flex min-h-screen min-w-full flex-col items-center justify-center gap-10 py-10 antialiased lg:py-0")
-              }
-            >
-              {children}
-            </main>
-          </NextUIProvider>
-        </ReactQueryClientProvider>
+        <ClientProviders>
+          <main
+            className={
+              (cn(geistSans.variable, geistMono.variable),
+              "flex min-h-screen min-w-full flex-col items-center justify-center gap-10 py-10 antialiased lg:py-0")
+            }
+          >
+            {children}
+          </main>
+        </ClientProviders>
       </body>
     </html>
   );
