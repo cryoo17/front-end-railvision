@@ -29,12 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ClientProviders>
-          <main
-            className={
-              (cn(geistSans.variable, geistMono.variable),
-              "flex min-h-screen min-w-full flex-col items-center justify-center gap-10 py-10 antialiased lg:py-0")
-            }
-          >
+          <main className={cn(geistSans.variable, geistMono.variable)}>
             {children}
           </main>
         </ClientProviders>
