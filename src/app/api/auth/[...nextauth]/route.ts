@@ -4,7 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { JWTExtended, SessionExtended, UserExtended } from "@/types/Auth";
 import authServices from "@/services/auth.service";
 
-export default NextAuth({
+const handler = NextAuth({
   session: {
     strategy: "jwt",
     maxAge: 60 * 60 * 24,
@@ -78,3 +78,5 @@ export default NextAuth({
     },
   },
 });
+
+export {handler as GET, handler as POST}

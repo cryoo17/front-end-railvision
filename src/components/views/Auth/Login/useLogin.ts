@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ILogin } from "@/types/Auth";
 import { useMutation } from "@tanstack/react-query";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const loginSchema = yup.object().shape({
   identifier: yup.string().required("Please input your email or username"),
@@ -18,8 +18,9 @@ const useLogin = () => {
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
+  const searchParams = useSearchParams();
 
-  // const callbackUrl: string = (router.query.callbackURL as string) || "/";
+  const callbackUrl: string = searchParams.get("callbackUrl") || "/";
 
   const {
     control,
@@ -35,7 +36,7 @@ const useLogin = () => {
     const result = await signIn("credentials", {
       ...payload,
       redirect: false,
-      callbackUrl: "/",
+      callbackUrl,
     });
 
     if (result?.error && result.status === 401) {
@@ -51,7 +52,7 @@ const useLogin = () => {
       });
     },
     onSuccess: () => {
-      router.push("/");
+      router.push(callbackUrl);
       reset();
     },
   });
