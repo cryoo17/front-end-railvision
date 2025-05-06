@@ -3,6 +3,7 @@
 import { cn } from "@/utils/cn";
 import { Button, Listbox, ListboxItem } from "@nextui-org/react";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { CiLogout } from "react-icons/ci";
 
@@ -31,9 +32,12 @@ const DashboardLayoutSidebar = ({ sidebarItems, isOpen }: PropTypes) => {
     >
       <section>
         <div className="flex w-full justify-center">
-          <h1 className="mb-6 w-32 text-3xl font-bold text-blue-500">
+          <Link
+            href={"/"}
+            className="mb-6 w-32 text-3xl font-bold text-blue-500"
+          >
             Railvision
-          </h1>
+          </Link>
         </div>
         <Listbox
           items={sidebarItems}
