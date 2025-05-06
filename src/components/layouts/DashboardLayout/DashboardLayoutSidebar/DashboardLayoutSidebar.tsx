@@ -53,7 +53,7 @@ const DashboardLayoutSidebar = ({ sidebarItems, isOpen }: PropTypes) => {
             <ListboxItem
               key={item.key}
               className={cn("my-1 h-12 text-2xl", {
-                "bg-blue-500 text-white": item.href === pathname,
+                "bg-blue-500 text-white": pathname.startsWith(item.href),
               })}
               startContent={item.icon}
               textValue={item.label}
