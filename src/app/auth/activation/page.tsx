@@ -1,6 +1,12 @@
 import AuthLayout from "@/components/layouts/AuthLayout/AuthLayout";
 import Activation from "@/components/views/Auth/Activation/Activation";
 import authServices from "@/services/auth.service";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Activation",
+  description: "Activation",
+};
 
 const ActivationPage = async ({
   searchParams,

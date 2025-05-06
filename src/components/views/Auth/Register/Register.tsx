@@ -22,18 +22,15 @@ const Register = () => {
     <div className="flex w-full flex-col items-center justify-center lg:flex-row">
       <Card>
         <CardBody className="p-8">
-          <h2 className="text-xl font-bold text-blue-500">Create Account</h2>
-          <p className="mb-4 text-small">
+          <h2 className="text-2xl font-bold text-blue-500">Create Account</h2>
+          <p className="mb-4 mt-2 text-small">
             Have an account?&nbsp;
-            <Link
-              href={"/auth/login"}
-              className="font-semibold text-blue-400"
-            >
+            <Link href={"/auth/login"} className="font-semibold text-blue-400">
               Login here
             </Link>
           </p>
           {errors.root && (
-            <p className="mb-2 font-medium text-blue">
+            <p className="text-blue mb-2 font-medium">
               {errors?.root?.message}
             </p>
           )}
