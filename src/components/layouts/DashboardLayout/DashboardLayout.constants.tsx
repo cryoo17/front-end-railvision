@@ -10,13 +10,13 @@ const SIDEBAR_ADMIN = [
   {
     key: "dashboard",
     label: "Dashboard",
-    href: "/admin",
+    href: "/admin/dashboard",
     icon: <CiGrid41 />,
   },
   {
-    key: "event",
-    label: "Event",
-    href: "/admin/event",
+    key: "station",
+    label: "Station",
+    href: "/admin/station",
     icon: <CiViewList />,
   },
   {

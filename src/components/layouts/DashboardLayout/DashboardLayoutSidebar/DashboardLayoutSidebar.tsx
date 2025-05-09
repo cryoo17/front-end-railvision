@@ -5,6 +5,7 @@ import { Button, Listbox, ListboxItem } from "@nextui-org/react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { JSX } from "react";
 import { CiLogout } from "react-icons/ci";
 
 interface SidebarItem {
@@ -56,9 +57,10 @@ const DashboardLayoutSidebar = ({ sidebarItems, isOpen }: PropTypes) => {
                 "bg-blue-500 text-white": pathname.startsWith(item.href),
               })}
               startContent={item.icon}
-              textValue={item.label}
               aria-labelledby={item.label}
               aria-describedby={item.label}
+              as={Link}
+              href={item.href}
             >
               <p className="text-small">{item.label}</p>
             </ListboxItem>
@@ -72,7 +74,7 @@ const DashboardLayoutSidebar = ({ sidebarItems, isOpen }: PropTypes) => {
           variant="light"
           className="flex justify-start rounded-lg px-2 py-1.5"
           size="lg"
-          onClick={() => signOut()}
+          onPress={() => signOut()}
         >
           <CiLogout />
           Logout

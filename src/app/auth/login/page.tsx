@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const Login = dynamic(() => import("@/components/views/Auth/Login/Login"), {
-  ssr: false,
+  // ssr: false,
 });
 
 const LoginPage = () => {
