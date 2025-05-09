@@ -11,32 +11,26 @@ const Home = () => {
   const router = useRouter();
   return (
     <>
-      <section className="min-h-screen bg-blue-900 py-16 text-white">
-        <div className="mt-32 flex flex-row items-center justify-between px-32">
-          <div className="flex flex-col gap-16">
-            <div className="flex flex-col gap-4">
-              <h1 className="text-6xl font-bold">Railvision</h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-                nemo? Quia, ipsam illo!
-              </p>
-            </div>
-            <Button
-              color="primary"
-              className="w-fit"
-              onPress={() => router.push("/user")}
+      <section
+        className="min-h-screen bg-cover bg-center py-16 text-white"
+        style={{ backgroundImage: "url('/images/bg-landing-page.jpg')" }}
+      >
+        <div className="mt-32 flex flex-col items-center justify-center gap-8 px-32">
+          <div className="flex flex-col gap-4">
+            <h1
+              className="text-center text-9xl font-bold"
             >
-              Dashboard
-            </Button>
+              Railvision
+            </h1>
           </div>
-          <div className="border border-yellow-500 bg-yellow-500 p-2">
-            <Image
-              src={"/images/image 1.png"}
-              alt="gambar"
-              height={200}
-              width={500}
-            />
-          </div>
+          <Button
+            size="lg"
+            color="primary"
+            className="w-fit font-bold"
+            onPress={() => router.push("/user")}
+          >
+            Try it now
+          </Button>
         </div>
       </section>
       <section className="min-h-screen py-16">

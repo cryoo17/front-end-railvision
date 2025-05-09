@@ -3,12 +3,33 @@ import { Button } from "@nextui-org/react";
 // import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
 
 const HomeLayout = ({ children }) => {
+  const [isTransparent, setIsTransparent] = useState(true);
   const router = useRouter();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsTransparent(scrollY < window.innerHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  
   return (
     <>
-      <nav className="flex items-center justify-between bg-blue-900 py-4 px-16 text-white border-b-1 border-blue-950 sticky top-0 z-50">
+      <nav className={`flex items-center justify-between fixed top-0 z-50 w-full py-4 px-16 transition-all duration-300 ${
+        isTransparent
+          ? "bg-transparent text-white"
+          : "bg-blue-900 text-white border-b border-blue-950"
+      }`}>
         <Link href={"/"}>Railvision</Link>
         <ul className="flex flex-row gap-4">
           <li className="">
