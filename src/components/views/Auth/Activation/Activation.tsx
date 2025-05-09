@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Button } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
@@ -25,7 +25,7 @@ const Activation = ({ status }: PropTypes) => {
           className="mt-4 w-fit"
           variant="bordered"
           color="primary"
-          onClick={() => router.push("/")}
+          onPress={() => router.push("/")}
         >
           Back to home
         </Button>
