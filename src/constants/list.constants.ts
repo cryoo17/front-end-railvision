@@ -5,4 +5,10 @@ const LIMIT_LISTS = [
   { label: "12", value: 12 },
 ];
 
-export { LIMIT_LISTS };
+const LIMIT_DEFAULT = LIMIT_LISTS[0].value;
+
+const PAGE_DEFAULT = 1;
+
+const DELAY = 1000;
+
+export { LIMIT_LISTS, DELAY, LIMIT_DEFAULT, PAGE_DEFAULT };
