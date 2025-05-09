@@ -40,7 +40,7 @@ const useCategory = () => {
     if (currentSearch) {
       params += `&search=${currentSearch}`;
     }
-    const res = await categoryServices.getCategories();
+    const res = await categoryServices.getCategories(params);
     const { data } = res;
     return data;
   };
