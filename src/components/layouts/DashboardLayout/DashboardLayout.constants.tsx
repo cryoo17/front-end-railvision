@@ -14,9 +14,9 @@ const SIDEBAR_ADMIN = [
     icon: <CiGrid41 />,
   },
   {
-    key: "event",
-    label: "Event",
-    href: "/admin/event",
+    key: "station",
+    label: "Station",
+    href: "/admin/station",
     icon: <CiViewList />,
   },
   {
