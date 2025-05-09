@@ -29,7 +29,7 @@ const Home = () => {
             className="w-fit font-bold"
             onPress={() => router.push("/user")}
           >
-            Try it now
+            Coba Sekarang
           </Button>
         </div>
       </section>
@@ -58,9 +58,9 @@ const Home = () => {
             <Button
               color="primary"
               className="w-fit"
-              onPress={() => router.push("/user")}
+              onPress={() => router.push("/user/stasiun")}
             >
-              Dashboard
+              Lihat Daftar Stasiun
             </Button>
           </div>
         </div>

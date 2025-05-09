@@ -30,7 +30,7 @@ const HomeLayout = ({ children }) => {
           ? "bg-transparent text-white"
           : "bg-blue-900 text-white border-b border-blue-950"
       }`}>
-        <Link href={"/"}>Railvision</Link>
+        <Link className="font-bold text-2xl" href={"/"}>Railvision</Link>
         <ul className="flex flex-row gap-4">
           <li className="">
             <Link href={"/"}>Home</Link>
@@ -46,8 +46,8 @@ const HomeLayout = ({ children }) => {
           </li>
         </ul>
         <div className="flex flex-row gap-2">
-          <Button onPress={() => router.push("/auth/login")}>Masuk</Button>
-          <Button onPress={() => router.push("/auth/register")}>Daftar</Button>
+          <Button color="default"  onPress={() => router.push("/auth/login")}>Masuk</Button>
+          <Button color="warning" onPress={() => router.push("/auth/register")}>Daftar</Button>
         </div>
       </nav>
       <section className="">{children}</section>

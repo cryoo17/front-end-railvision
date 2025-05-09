@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   description: "User Dashboard",
 };
 
-const DashboardUserPage = () => {
+const UserDashboardPage = () => {
   return (
-    <DashboardLayout title="Dashboard" description="Dashboard User" type="user">
+    <DashboardLayout title="Cek Kepadatan Stasiun" description="" type="user">
       <Dashboard />
     </DashboardLayout>
   );
 };
 
-export default DashboardUserPage;
+export default UserDashboardPage;
