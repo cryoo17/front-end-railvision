@@ -14,6 +14,7 @@ import { COLUMN_LISTS_CATEGORY } from "./Category.constants";
 import DataTable from "@/components/ui/DataTable/DataTable";
 import { useRouter, useSearchParams } from "next/navigation";
 import useCategory from "./useCategory";
+import InputFile from "@/components/ui/InputFile/InputFile";
 
 const Category = () => {
   const router = useRouter();
@@ -30,7 +31,6 @@ const Category = () => {
     handleSearch,
     currentPage,
     currentLimit,
-    currentSearch,
   } = useCategory();
 
   useEffect(() => {
@@ -97,6 +97,8 @@ const Category = () => {
           totalPages={dataCategory?.pagination.totalPages}
         />
       )}
+
+      <InputFile name="input" isDropable />
     </section>
   );
 };
