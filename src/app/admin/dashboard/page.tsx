@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Admin Dashboard",
 };
 
-const DashboardAdminPage = () => {
+const AdminDashboardPage = () => {
   return (
     <DashboardLayout
       title="Dashboard"
@@ -19,4 +19,4 @@ const DashboardAdminPage = () => {
   );
 };
 
-export default DashboardAdminPage;
+export default AdminDashboardPage;
