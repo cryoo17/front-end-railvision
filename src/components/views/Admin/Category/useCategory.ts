@@ -5,12 +5,13 @@ import useDebounce from "@/hooks/useDebounce";
 import categoryServices from "@/services/category.service";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ChangeEvent, useCallback } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 
 const useCategory = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const debounce = useDebounce();
+  const [selectedId, setSelectedId] = useState<string>("");
   const currentLimit = searchParams.get("limit") || LIMIT_DEFAULT;
   const currentPage = searchParams.get("page") || PAGE_DEFAULT;
   const currentSearch = searchParams.get("search") || "";
@@ -111,6 +112,8 @@ const useCategory = () => {
     currentPage,
     currentLimit,
     currentSearch,
+    selectedId,
+    setSelectedId,
   };
 };
 

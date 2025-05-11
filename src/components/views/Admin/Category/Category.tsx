@@ -17,6 +17,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import useCategory from "./useCategory";
 import InputFile from "@/components/ui/InputFile/InputFile";
 import AddCategoryModal from "./AddCategoryModal/AddCategoryModal";
+import DeleteCategoryModal from "./DeleteCategoryModal/DeleteCategoryModal";
 
 const Category = () => {
   const router = useRouter();
@@ -34,9 +35,12 @@ const Category = () => {
     handleSearch,
     currentPage,
     currentLimit,
+    selectedId,
+    setSelectedId,
   } = useCategory();
 
   const addCategoryModal = useDisclosure();
+  const deleteCategoryModal = useDisclosure();
 
   useEffect(() => {
     setURL();
@@ -47,10 +51,10 @@ const Category = () => {
       const cellValue = category[columnKey as keyof typeof category];
 
       switch (columnKey) {
-        // case "icon":
-        //   return (
-        //     <Image src={`${cellValue}`} alt="icon" width={100} height={200} />
-        //   );
+        case "icon":
+          return (
+            <Image src={`${cellValue}`} alt="icon" width={100} height={200} />
+          );
         case "actions":
           return (
             <Dropdown>
@@ -69,6 +73,10 @@ const Category = () => {
                 <DropdownItem
                   key={"delete-category-button"}
                   className="text-danger-500"
+                  onPress={() => {
+                    setSelectedId(`${category._id}`);
+                    deleteCategoryModal.onOpen();
+                  }}
                 >
                   Delete Category
                 </DropdownItem>
@@ -104,8 +112,15 @@ const Category = () => {
       )}
 
       <AddCategoryModal
-        refetchCategory={refetchCategory}
         {...addCategoryModal}
+        refetchCategory={refetchCategory}
+      />
+
+      <DeleteCategoryModal
+        {...deleteCategoryModal}
+        selectedId={selectedId}
+        setSelectedId={setSelectedId}
+        refetchCategory={refetchCategory}
       />
     </section>
   );
