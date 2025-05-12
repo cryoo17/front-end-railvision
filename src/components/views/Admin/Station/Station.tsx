@@ -93,10 +93,10 @@ const Station = () => {
     <section>
       {Object.keys(query).length > 0 && (
         <DataTable
-          buttonTopContentLabel="Create Category"
+          buttonTopContentLabel="Create Station"
           columns={COLUMN_LISTS_STATION}
           data={dataStation?.data || []}
-          emptyContent="Category is empty"
+          emptyContent="Station is empty"
           isLoading={isLoadingStation || isRefetchingStation}
           onClickButtonTopContent={addStationModal.onOpen}
           renderCell={renderCell}
