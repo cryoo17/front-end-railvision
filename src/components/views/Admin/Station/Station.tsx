@@ -9,6 +9,8 @@ import useStation from "./useStation";
 import DropdownAction from "@/components/commons/DropdownAction/DropdownAction";
 import DataTable from "@/components/ui/DataTable/DataTable";
 import { COLUMN_LISTS_STATION } from "./Station.constants";
+import AddStationModal from "./AddStationModal/AddStationModal";
+import DeleteStationModal from "./DeleteStationModal/DeleteStationModal";
 
 const Station = () => {
   const router = useRouter();
@@ -103,16 +105,13 @@ const Station = () => {
           totalPages={dataStation?.pagination.totalPages}
         />
       )}
-      {/* <AddStationModal
-        {...addStationModal}
-        refetchStation={refetchStation}
-      />
+      <AddStationModal {...addStationModal} refetchStation={refetchStation} />
       <DeleteStationModal
         {...deleteStationModal}
         selectedId={selectedId}
         setSelectedId={setSelectedId}
         refetchStation={refetchStation}
-      /> */}
+      />
     </section>
   );
 };
