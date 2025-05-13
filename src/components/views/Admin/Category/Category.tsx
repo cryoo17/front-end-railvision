@@ -1,80 +1,67 @@
 "use client";
 
-import {
-  Button,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-} from "@nextui-org/react";
+import { useDisclosure } from "@nextui-org/react";
 import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation"; // Updated imports
 import { Key, ReactNode, useCallback, useEffect } from "react";
-import { CiMenuKebab } from "react-icons/ci";
 import { COLUMN_LISTS_CATEGORY } from "./Category.constants";
-import DataTable from "@/components/ui/DataTable/DataTable";
-import { useRouter, useSearchParams } from "next/navigation";
 import useCategory from "./useCategory";
-import InputFile from "@/components/ui/InputFile/InputFile";
+import useChangeUrl from "@/hooks/useChangeUrl";
+import DropdownAction from "@/components/commons/DropdownAction/DropdownAction";
+import AddCategoryModal from "./AddCategoryModal/AddCategoryModal";
+import DeleteCategoryModal from "./DeleteCategoryModal/DeleteCategoryModal";
+import DataTable from "@/components/ui/DataTable/DataTable";
 
 const Category = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const query = Object.fromEntries(searchParams.entries());
+  const searchParams = useSearchParams(); // Mengambil query parameters
+  const query = Object.fromEntries(searchParams.entries()); // Konversi ke objek
+
   const {
-    setURL,
     dataCategory,
     isLoadingCategory,
     isRefetchingCategory,
-    handleChangeLimit,
-    handleChangePage,
-    handleClearSearch,
-    handleSearch,
-    currentPage,
-    currentLimit,
+    refetchCategory,
+    selectedId,
+    setSelectedId,
   } = useCategory();
 
+  const addCategoryModal = useDisclosure();
+  const deleteCategoryModal = useDisclosure();
+  const { setUrl } = useChangeUrl();
+
   useEffect(() => {
-    setURL();
-  }, [setURL]);
+    setUrl();
+  }, [setUrl]);
 
   const renderCell = useCallback(
     (category: Record<string, unknown>, columnKey: Key) => {
       const cellValue = category[columnKey as keyof typeof category];
 
       switch (columnKey) {
-        // case "icon":
-        //   return (
-        //     <Image src={`${cellValue}`} alt="icon" width={100} height={200} />
-        //   );
+        case "icon":
+          return (
+            <Image src={`${cellValue}`} alt="icon" width={100} height={200} />
+          );
         case "actions":
           return (
-            <Dropdown>
-              <DropdownTrigger>
-                <Button isIconOnly size="sm" variant="light">
-                  <CiMenuKebab className="text-default-700" />
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu>
-                <DropdownItem
-                  key={"detail-category-button"}
-                  onPress={() => router.push(`/admin/category/${category._id}`)}
-                >
-                  Detail Category
-                </DropdownItem>
-                <DropdownItem
-                  key={"delete-category-button"}
-                  className="text-danger-500"
-                >
-                  Delete Category
-                </DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+            <DropdownAction
+              textButtonDetail="Detail Category"
+              textButtonDelete="Delete Category"
+              onPressButtonDetail={() =>
+                router.push(`/admin/category/${category._id}`)
+              }
+              onPressButtonDelete={() => {
+                setSelectedId(`${category._id}`);
+                deleteCategoryModal.onOpen();
+              }}
+            />
           );
         default:
           return cellValue as ReactNode;
       }
     },
-    [router],
+    [router, setSelectedId, deleteCategoryModal],
   );
 
   return (
@@ -83,22 +70,24 @@ const Category = () => {
         <DataTable
           buttonTopContentLabel="Create Category"
           columns={COLUMN_LISTS_CATEGORY}
-          currentPage={Number(currentPage)}
           data={dataCategory?.data || []}
           emptyContent="Category is empty"
           isLoading={isLoadingCategory || isRefetchingCategory}
-          limit={String(currentLimit)}
-          onChangeLimit={handleChangeLimit}
-          onChangePage={handleChangePage}
-          onChangeSearch={handleSearch}
-          onClearSearch={handleClearSearch}
-          onClickButtonTopContent={() => {}}
+          onClickButtonTopContent={addCategoryModal.onOpen}
           renderCell={renderCell}
           totalPages={dataCategory?.pagination.totalPages}
         />
       )}
-
-      <InputFile name="input" isDropable />
+      <AddCategoryModal
+        {...addCategoryModal}
+        refetchCategory={refetchCategory}
+      />
+      <DeleteCategoryModal
+        {...deleteCategoryModal}
+        selectedId={selectedId}
+        setSelectedId={setSelectedId}
+        refetchCategory={refetchCategory}
+      />
     </section>
   );
 };
