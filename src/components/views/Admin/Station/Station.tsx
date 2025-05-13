@@ -54,9 +54,18 @@ const Station = () => {
             string,
             { color: "danger" | "warning" | "success"; label: string }
           > = {
-            "68202e947a4a9163ffaef59f": { color: "danger", label: "DANGER" },
-            "68202eac7a4a9163ffaef5a3": { color: "warning", label: "WARNING" },
-            "68217d71f2e719e1385c4fe0": { color: "success", label: "OK" },
+            "68234b3cd4829177e0c38a13": {
+              color: "danger",
+              label: "Sangat Padat",
+            },
+            "68234afcd4829177e0c38a06": {
+              color: "warning",
+              label: "Cukup Padat",
+            },
+            "68234abcd4829177e0c38a02": {
+              color: "success",
+              label: "Tidak Padat",
+            },
           };
 
           const value = typeof cellValue === "string" ? cellValue : "";
