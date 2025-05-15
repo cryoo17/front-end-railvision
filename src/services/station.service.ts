@@ -5,13 +5,14 @@ import { IStation } from "@/types/Station";
 const stationServices = {
   getStations: (params?: string) =>
     instance.get(`${endpoint.STATION}?${params}`),
-  // getCategoryById: (id: string) => instance.get(`${endpoint.CATEGORY}/${id}`),
+  getStationById: (id: string) => instance.get(`${endpoint.STATION}/${id}`),
   addStation: (payload: IStation) =>
     instance.post(`${endpoint.STATION}`, payload),
   searchLocationByCity: (name: string) =>
     instance.get(`${endpoint.REGION}-search?name=${name}`),
-  // updateCategory: (id: string, payload: ICategory) =>
-  //   instance.put(`${endpoint.CATEGORY}/${id}`, payload),
+  getCityById: (id: string) => instance.get(`${endpoint.REGION}/${id}/regency`),
+  updateStation: (id: string, payload: IStation) =>
+    instance.put(`${endpoint.STATION}/${id}`, payload),
   deleteStation: (id: string) => instance.delete(`${endpoint.STATION}/${id}`),
 };
 
