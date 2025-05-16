@@ -1,11 +1,11 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout/DashboardLayout";
 import DetailStation from "@/components/views/Admin/Station/DetailStation/DetailStation";
 
-const AdminDetailEventPage = () => {
+const AdminDetailStationPage = () => {
   return (
     <DashboardLayout
-      title="Detail Event"
-      description="Manage information for this event"
+      title="Detail Station"
+      description="Manage information for this station"
       type="admin"
     >
       <DetailStation />
@@ -13,4 +13,4 @@ const AdminDetailEventPage = () => {
   );
 };
 
-export default AdminDetailEventPage;
+export default AdminDetailStationPage;
