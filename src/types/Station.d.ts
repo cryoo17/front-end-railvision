@@ -4,21 +4,22 @@ interface ICity {
 }
 
 interface IStation {
-  name: string;
-  slug: string;
-  category: string;
-  description: string;
+  _id?: string;
+  name?: string;
+  slug?: string;
+  category?: string;
+  description?: string;
   location?: {
     region: string;
-    coordinate: number[];
+    coordinates: number[];
   };
-  icon: string | FileList;
+  icon?: string | FileList;
 }
 
 interface IStationForm extends IStation {
-  region: string;
-  latitude: string;
-  longitude: string;
+  region?: string;
+  latitude?: string;
+  longitude?: string;
 }
 
 export type { ICity, IStation, IStationForm };

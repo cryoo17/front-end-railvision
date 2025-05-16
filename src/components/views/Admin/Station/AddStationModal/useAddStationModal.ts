@@ -28,8 +28,6 @@ const useAddStationModal = () => {
   const { setToaster } = useContext(ToasterContext);
   const debounce = useDebounce();
   const {
-    mutateUploadFile,
-    mutateDeleteFile,
     isPendingMutateUploadFile,
     isPendingMutateDeleteFile,
     handleUploadFile,
@@ -123,8 +121,8 @@ const useAddStationModal = () => {
     const payload = {
       ...data,
       location: {
-        region: data.region,
-        coordinate: [Number(data.latitude), Number(data.longitude)],
+        region: `${data.region}`,
+        coordinates: [Number(data.latitude), Number(data.longitude)],
       },
       icon: data.icon,
     };

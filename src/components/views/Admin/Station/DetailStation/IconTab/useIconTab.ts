@@ -1,3 +1,5 @@
+"use client";
+
 import useMediaHandling from "@/hooks/useMediaHandling";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -6,7 +8,7 @@ import * as yup from "yup";
 const schemaUpdateIcon = yup.object().shape({
   icon: yup
     .mixed<FileList | string>()
-    .required("Please input new icon category"),
+    .required("Please input new icon station"),
 });
 
 const useIconTab = () => {
