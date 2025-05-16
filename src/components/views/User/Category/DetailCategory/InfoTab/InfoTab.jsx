@@ -11,21 +11,14 @@ import { useEffect } from "react";
 import { Controller } from "react-hook-form";
 
 const InfoTab = (props) => {
-  const {
-    dataCategory,
-  } = props;
+  const { dataCategory } = props;
 
-  const {
-    controlUpdateInfo,
-    errorsUpdateInfo,
-    setValueUpdateInfo,
-  } = useInfoTab();
+  const { controlUpdateInfo, setValueUpdateInfo } = useInfoTab();
 
   useEffect(() => {
     setValueUpdateInfo("name", `${dataCategory?.name}`);
     setValueUpdateInfo("description", `${dataCategory?.description}`);
   }, [dataCategory]);
-
 
   return (
     <Card className="w-full p-4 lg:w-1/2">
@@ -36,9 +29,7 @@ const InfoTab = (props) => {
         </p>
       </CardHeader>
       <CardBody>
-        <form
-          className="flex flex-col gap-4"
-        >
+        <form className="flex flex-col gap-4">
           <Skeleton isLoaded={!!dataCategory?.name} className="rounded-lg">
             <Controller
               name="name"
@@ -51,8 +42,6 @@ const InfoTab = (props) => {
                   variant="bordered"
                   labelPlacement="outside"
                   type="text"
-                  isInvalid={errorsUpdateInfo.name !== undefined}
-                  errorMessage={errorsUpdateInfo.name?.message}
                   className="mt-2"
                 />
               )}
@@ -69,8 +58,6 @@ const InfoTab = (props) => {
                   label="Description"
                   variant="bordered"
                   labelPlacement="outside"
-                  isInvalid={errorsUpdateInfo.description !== undefined}
-                  errorMessage={errorsUpdateInfo.description?.message}
                 />
               )}
             />

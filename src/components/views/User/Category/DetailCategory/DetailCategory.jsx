@@ -6,30 +6,15 @@ import IconTab from "./IconTab/IconTab";
 import InfoTab from "./InfoTab/InfoTab";
 
 const DetailCategory = () => {
-  const {
-    dataCategory,
-    handleUpdateCategory,
-    isPendingMutateUpdateCategory,
-    isSuccessMutateUpdateCategory,
-  } = useDetailCategory();
+  const { dataCategory } = useDetailCategory();
 
   return (
     <Tabs aria-label="Options">
       <Tab key="icon" title="Icon">
-        <IconTab
-          currentIcon={dataCategory?.icon}
-          onUpdateIcon={handleUpdateCategory}
-          isPendingUpdateIconCategory={isPendingMutateUpdateCategory}
-          isSuccessUpdateIconCategory={isSuccessMutateUpdateCategory}
-        />
+        <IconTab currentIcon={dataCategory?.icon} />
       </Tab>
       <Tab key="info" title="Info">
-        <InfoTab
-          dataCategory={dataCategory}
-          onUpdateInfo={handleUpdateCategory}
-          isPendingUpdateInfoCategory={isPendingMutateUpdateCategory}
-          isSuccessUpdateInfoCategory={isSuccessMutateUpdateCategory}
-        />
+        <InfoTab dataCategory={dataCategory} />
       </Tab>
     </Tabs>
   );

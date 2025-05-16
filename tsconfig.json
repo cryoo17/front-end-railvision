@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/components/views/User/Dashboard/Dashboard.jsx", "src/components/views/User/Category/DetailCategory/DetailCategory.jsx", "src/components/views/User/Category/DetailCategory/useDetailCategory.js", "src/components/views/User/Category/DetailCategory/InfoTab/InfoTab.jsx", "src/components/views/User/Category/DetailCategory/InfoTab/useInfoTab.js", "src/components/views/User/Category/DetailCategory/IconTab/IconTab.jsx", "src/components/views/User/Category/DetailCategory/IconTab/useIconTab.js"  ],
+, "src/components/views/User/Dashboard/Dashboard.jsx", "src/components/views/User/Category/DetailCategory/DetailCategory.jsx", "src/components/views/User/Category/DetailCategory/useDetailCategory.js", "src/components/views/User/Category/DetailCategory/InfoTab/InfoTab.jsx", "src/components/views/User/Category/DetailCategory/InfoTab/useInfoTab.js", "src/components/views/User/Category/DetailCategory/IconTab/IconTab.jsx", "src/components/views/User/Category/DetailCategory/IconTab/useIconTab.js", "src/components/views/User/Station/DetailStation/IconTab/IconTab.jsx", "src/components/views/User/Station/DetailStation/IconTab/useIconTab.js", "src/components/views/User/Station/DetailStation/InfoTab/InfoTab.jsx", "src/components/views/User/Station/DetailStation/InfoTab/useInfoTab.js", "src/components/views/User/Station/DetailStation/LocationTab/LocationTab.jsx", "src/components/views/User/Station/DetailStation/LocationTab/useLocationTab.js", "src/components/views/User/Station/DetailStation/DetailStation.jsx", "src/components/views/User/Station/DetailStation/useDetailStation.js"  ],
   "exclude": [
     "node_modules"
   ]

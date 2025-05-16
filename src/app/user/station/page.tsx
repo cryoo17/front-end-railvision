@@ -1,10 +1,10 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout/DashboardLayout";
-import Stasiun from "@/components/views/User/Stasiun/Stasiun";
+import Station from "@/components/views/User/Station/Station";
 
 const UserStasiunPage = () => {
   return (
     <DashboardLayout title="Daftar Stasiun Populer" description="" type="user">
-      <Stasiun/>
+      <Station/>
     </DashboardLayout>
   );
 };
