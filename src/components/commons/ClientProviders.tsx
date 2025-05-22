@@ -12,6 +12,7 @@ import { SessionProvider } from "next-auth/react";
 import localFont from "next/font/local";
 import { ReactNode, useContext, useEffect } from "react";
 import Toaster from "../ui/Toaster/Toaster";
+import { onTokenExpiredHandler } from "@/libs/axios/tokenHandler";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,6 +30,13 @@ const queryClient = new QueryClient({
     queries: {
       refetchOnWindowFocus: false,
       retry: false,
+      throwOnError(error) {
+        onTokenExpiredHandler(error);
+        return false;
+      },
+    },
+    mutations: {
+      onError: onTokenExpiredHandler,
     },
   },
 });

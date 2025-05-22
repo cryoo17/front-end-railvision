@@ -52,6 +52,7 @@ const useDetailStation = () => {
 
   const handleUpdateLocation = (data: IStationForm) => {
     const payload = {
+      ...data,
       location: {
         region: `${data.region}`,
         coordinates: [Number(data.latitude), Number(data.longitude)],
