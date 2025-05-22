@@ -1,4 +1,5 @@
 "use client";
+
 import { cn } from "@/utils/cn";
 import { Button, Card, CardBody, Input } from "@nextui-org/react";
 import Image from "next/image";
@@ -33,7 +34,7 @@ const Home = () => {
           </Button>
         </div>
       </section>
-      <section className="min-h-screen py-16">
+      <section className="min-h-screen py-16" id="stasiun">
         <div className="mt-32 flex flex-row items-center justify-between px-32">
           <div className="border border-yellow-500 bg-yellow-500 p-2">
             <Image
@@ -65,7 +66,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-screen bg-blue-900 py-16 text-white">
+      <section className="min-h-screen bg-blue-900 py-16 text-white" id="tentang">
         <div className="mt-32 flex flex-row items-center justify-between px-32">
           <div className="flex flex-col gap-16">
             <div className="flex flex-col gap-4">
@@ -93,7 +94,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-screen py-16">
+      <section className="min-h-screen py-16" id="hubungi">
         <div className="flex w-full flex-col items-center justify-center">
           <h2 className="mb-12 text-4xl font-extrabold text-blue-500">
             Hubungi Kami
