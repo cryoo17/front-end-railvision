@@ -5,11 +5,16 @@ import { Button, Card, CardBody, Input } from "@nextui-org/react";
 import Image from "next/image";
 // import Link from "next/link";
 import { useRouter } from "next/navigation";
+import HomeStation from "./HomeStation/HomeStation";
+import HomeCategory from "./HomeCategory/HomeCategory";
+import useHome from "./useHome";
 // import { Controller } from "react-hook-form";
 // import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 const Home = () => {
   const router = useRouter();
+  const { dataStation, isLoadingStation, dataCategory, isLoadingCategory } =
+    useHome();
   return (
     <>
       <section
@@ -18,11 +23,7 @@ const Home = () => {
       >
         <div className="mt-32 flex flex-col items-center justify-center gap-8 px-32">
           <div className="flex flex-col gap-4">
-            <h1
-              className="text-center text-9xl font-bold"
-            >
-              Railvision
-            </h1>
+            <h1 className="text-center text-9xl font-bold">Railvision</h1>
           </div>
           <Button
             size="lg"
@@ -34,39 +35,21 @@ const Home = () => {
           </Button>
         </div>
       </section>
-      <section className="min-h-screen py-16" id="stasiun">
-        <div className="mt-32 flex flex-row items-center justify-between px-32">
-          <div className="border border-yellow-500 bg-yellow-500 p-2">
-            <Image
-              src={"/images/image 1.png"}
-              alt="gambar"
-              height={200}
-              width={500}
-            />
-          </div>
-          <div className="flex flex-col gap-16">
-            <div className="flex flex-col gap-4">
-              <h1 className="text-5xl font-bold">Daftar Stasiun Populer</h1>
-              <ul className="list-disc pl-4">
-                <li>Stasiun Pasar Senen</li>
-                <li>Stasiun Gambir</li>
-                <li>Stasiun Yogyakarta</li>
-                <li>Stasiun Surabaya Gubeng</li>
-                <li>Stasiun Surabaya Pasarturi</li>
-                <li>Stasiun Bandung</li>
-              </ul>
-            </div>
-            <Button
-              color="primary"
-              className="w-fit"
-              onPress={() => router.push("/user/stasiun")}
-            >
-              Lihat Daftar Stasiun
-            </Button>
-          </div>
-        </div>
+      <section className="flex min-h-screen flex-col py-16" id="stasiun">
+        <HomeStation
+          title="Daftar Stasiun"
+          station={dataStation?.data}
+          isLoadingStation={isLoadingStation}
+        />
+        <HomeCategory
+          category={dataCategory?.data}
+          isLoadingCategory={isLoadingCategory}
+        />
       </section>
-      <section className="min-h-screen bg-blue-900 py-16 text-white" id="tentang">
+      <section
+        className="min-h-screen bg-blue-900 py-16 text-white"
+        id="tentang"
+      >
         <div className="mt-32 flex flex-row items-center justify-between px-32">
           <div className="flex flex-col gap-16">
             <div className="flex flex-col gap-4">
@@ -101,8 +84,6 @@ const Home = () => {
           </h2>
           <Card>
             <CardBody className="p-8">
-              {/* <h2 className="text-2xl font-bold text-blue-500">Hubungi Kami</h2> */}
-              {/* <p>Jangan ganggu kami!</p> */}
               <form
                 className={cn("flex w-80 flex-col gap-4")}
                 onSubmit={() => {}}

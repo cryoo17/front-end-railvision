@@ -15,6 +15,7 @@ const useChangeUrl = () => {
   const currentLimit = searchParams.get("limit") || LIMIT_DEFAULT;
   const currentPage = searchParams.get("page") || PAGE_DEFAULT;
   const currentSearch = searchParams.get("search") || "";
+  const currentCategory = searchParams.get("category") || "";
 
   // Utility to create query string
   const createQueryString = useCallback(
@@ -43,6 +44,22 @@ const useChangeUrl = () => {
     currentLimit,
     currentPage,
     currentSearch,
+  ]);
+
+  const setUrlExplore = useCallback(() => {
+    const queryString = createQueryString({
+      limit: currentLimit,
+      page: currentPage,
+      category: currentCategory,
+    });
+    router.replace(`${pathname}?${queryString}`, { scroll: false });
+  }, [
+    router,
+    pathname,
+    createQueryString,
+    currentLimit,
+    currentPage,
+    currentCategory,
   ]);
 
   // Handle page change
@@ -91,15 +108,26 @@ const useChangeUrl = () => {
     router.push(`${pathname}?${queryString}`, { scroll: false });
   }, [router, pathname, createQueryString]);
 
+  const handleChangeCategory = useCallback(
+    (category: string) => {
+      const queryString = createQueryString({ category });
+      router.push(`${pathname}?${queryString}`, { scroll: false });
+    },
+    [router, pathname, createQueryString],
+  );
+
   return {
     setUrl,
+    setUrlExplore,
     handleChangePage,
     handleChangeLimit,
     handleSearch,
     handleClearSearch,
+    handleChangeCategory,
     currentLimit,
     currentPage,
     currentSearch,
+    currentCategory,
   };
 };
 

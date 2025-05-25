@@ -12,6 +12,10 @@ const NAV_ITEMS = [
     href: "/",
   },
   {
+    label: "Explore",
+    href: "/station",
+  },
+  {
     label: "Stasiun",
     href: "/#stasiun",
   },
