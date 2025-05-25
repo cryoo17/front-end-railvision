@@ -33,25 +33,27 @@ const NavbarLayout = () => {
   const { dataProfile } = useNavbarLayout();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setIsTransparent(scrollY < window.innerHeight);
-    };
+    if (pathname === "/") {
+      const handleScroll = () => {
+        const scrollY = window.scrollY;
+        setIsTransparent(scrollY < window.innerHeight);
+      };
 
-    window.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    } else {
+      setIsTransparent(false);
+    }
+  }, [pathname]);
 
   return (
     <Navbar
       maxWidth="full"
-      className={`fixed top-0 z-50 flex w-full items-center justify-between px-16 py-4 transition-all duration-300 ${
-        isTransparent
-          ? "bg-transparent text-white"
-          : "border-b border-blue-950 bg-blue-900 text-white"
+      className={`fixed top-0 z-50 transition-all duration-300 ${
+        isTransparent ? "bg-transparent" : "bg-blue-900"
       }`}
       isBordered
       isBlurred={false}
@@ -62,7 +64,11 @@ const NavbarLayout = () => {
       > */}
       <div className="flex items-center gap-8">
         <NavbarBrand as={Link} href={"/"}>
-          <h1 className="text-2xl font-bold text-white">RailVision</h1>
+          <h1
+            className={`${isTransparent ? "text-2xl font-bold text-white" : "text-2xl font-bold text-white"}`}
+          >
+            RailVision
+          </h1>
         </NavbarBrand>
         <NavbarContent className="hidden lg:flex">
           {NAV_ITEMS.map((item) => (
@@ -70,9 +76,13 @@ const NavbarLayout = () => {
               key={`nav-${item.label}`}
               as={Link}
               href={item.href}
-              className={cn("text-medium text-white hover:text-blue-700", {
-                "font-bold text-blue-500": pathname === item.href,
-              })}
+              className={cn(
+                "text-medium hover:text-blue-700",
+                isTransparent ? "text-white" : "text-white",
+                {
+                  "font-bold text-blue-500": pathname === item.href,
+                },
+              )}
             >
               {item.label}
             </NavbarItem>

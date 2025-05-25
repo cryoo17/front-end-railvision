@@ -5,7 +5,6 @@ import NavbarLayout from "./Navbar/NavbarLayout";
 import FooterLayout from "./FooterLayout/FooterLayout";
 
 interface PropTypes {
-  title: string;
   children: ReactNode;
 }
 
