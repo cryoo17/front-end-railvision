@@ -17,6 +17,9 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
   Link,
+  Listbox,
+  ListboxItem,
+  Spinner,
 } from "@nextui-org/react";
 import { cn } from "@/utils/cn";
 import { CiSearch } from "react-icons/ci";
@@ -25,12 +28,22 @@ import { Fragment, useEffect, useState } from "react";
 import { BUTTON_ITEMS, NAV_ITEMS } from "../HomeLayout.constants";
 import useNavbarLayout from "./useNavbarLayout";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { IStation } from "@/types/Station";
 
 const NavbarLayout = () => {
   const pathname = usePathname();
   const session = useSession();
   const [isTransparent, setIsTransparent] = useState(true);
-  const { dataProfile } = useNavbarLayout();
+  const {
+    dataProfile,
+    dataStationSearch,
+    isLoadingStationSearch,
+    isRefetchingStationSearch,
+    handleSearch,
+    search,
+    setSearch,
+  } = useNavbarLayout();
 
   useEffect(() => {
     if (pathname === "/") {
@@ -98,9 +111,38 @@ const NavbarLayout = () => {
             className="w-[300px]"
             placeholder="Cari Stasiun"
             startContent={<CiSearch />}
-            onClear={() => {}}
-            onChange={() => {}}
+            onClear={() => setSearch("")}
+            onChange={handleSearch}
           />
+          {search !== "" && (
+            <Listbox
+              items={dataStationSearch?.data || []}
+              className="absolute right-0 top-12 rounded-xl border bg-white"
+            >
+              {!isRefetchingStationSearch && !isLoadingStationSearch ? (
+                (item: IStation) => (
+                  <ListboxItem key={item._id} href={`/event/${item.slug}`}>
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src={`${item.icon}`}
+                        alt={`${item.name}`}
+                        className="w-2/5 rounded-md"
+                        width={100}
+                        height={40}
+                      />
+                      <p className="line-clamp-2 w-3/5 text-wrap">
+                        {item.name}
+                      </p>
+                    </div>
+                  </ListboxItem>
+                )
+              ) : (
+                <ListboxItem key="loading">
+                  <Spinner color="primary" size="sm" />
+                </ListboxItem>
+              )}
+            </Listbox>
+          )}
         </NavbarItem>
         {session.status === "authenticated" ? (
           <NavbarItem className="hidden lg:block">
