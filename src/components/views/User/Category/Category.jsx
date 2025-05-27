@@ -24,7 +24,7 @@ const Category = () => {
   return (
     <section>
       {Object.keys(query).length > 0 && (
-        <div className="grid grid-cols-3 gap-8">
+        <div className="lg:grid flex flex-col lg:grid-cols-3 gap-8">
           {dataCategory?.data?.map((category) => (
             <Card
               key={category._id}

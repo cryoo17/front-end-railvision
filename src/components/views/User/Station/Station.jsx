@@ -37,7 +37,7 @@ const Station = () => {
   return (
     <>
       <Select
-        className="mb-4 hidden max-w-36 lg:block"
+        className="mb-4 max-w-36 lg:block"
         size="md"
         selectedKeys={[`${currentLimit}`]}
         selectionMode="single"
@@ -53,7 +53,7 @@ const Station = () => {
       </Select>
       <section>
         {Object.keys(query).length > 0 && (
-          <div className="grid grid-cols-3 gap-8">
+          <div className="lg:grid flex flex-col gap-8 lg:grid-cols-3">
             {dataStation?.data?.map((station) => (
               <Card
                 key={station._id}
