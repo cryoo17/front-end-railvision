@@ -6,6 +6,7 @@ const stationServices = {
   getStations: (params?: string) =>
     instance.get(`${endpoint.STATION}?${params}`),
   getStationById: (id: string) => instance.get(`${endpoint.STATION}/${id}`),
+  getStationBySlug: (slug: string) => instance.get(`${endpoint.STATION}/${slug}/slug`),
   addStation: (payload: IStation) =>
     instance.post(`${endpoint.STATION}`, payload),
   searchLocationByCity: (name: string) =>

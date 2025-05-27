@@ -1,11 +1,18 @@
 import Link from "next/link";
-import { FaBitcoin } from "react-icons/fa6";
 import { NAV_ITEMS, SOCIAL_ITEMS } from "../HomeLayout.constants";
+import Image from "next/image";
 
 const FooterLayout = () => {
   return (
     <div className="flex flex-col items-center justify-between bg-blue-900 px-6 py-10 text-center lg:flex-row lg:text-left xl:p-20">
-      <FaBitcoin className="text-9xl" />
+      <Link href={"/"}>
+        <Image
+          src={"/icon/icon-white.svg"}
+          alt="icon"
+          width={200}
+          height={200}
+        />
+      </Link>
       <div className="mb-4 flex flex-col gap-4 lg:mb-0">
         <div>
           <h4 className="text-xl text-white">Customer Service</h4>

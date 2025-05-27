@@ -21,9 +21,9 @@ const Home = () => {
         className="min-h-screen bg-cover bg-center py-16 text-white"
         style={{ backgroundImage: "url('/images/bg-landing-page.jpg')" }}
       >
-        <div className="mt-32 flex flex-col items-center justify-center gap-8 px-32">
+        <div className="mt-32 flex flex-col items-center justify-center gap-16 lg:gap-8 px-32">
           <div className="flex flex-col gap-4">
-            <h1 className="text-center text-9xl font-bold">Railvision</h1>
+            <h1 className="text-center text-7xl lg:text-9xl font-bold">Railvision</h1>
           </div>
           <Button
             size="lg"
@@ -50,13 +50,12 @@ const Home = () => {
         className="min-h-screen bg-blue-900 py-16 text-white"
         id="tentang"
       >
-        <div className="mt-32 flex flex-row items-center justify-between px-32">
-          <div className="flex flex-col gap-16">
+        <div className="flex-col lg:mt-32 flex lg:flex-row items-center justify-between mx-6 gap-4">
+          <div className="flex flex-col gap-4 lg:gap-16">
             <div className="flex flex-col gap-4">
               <h1 className="text-6xl font-bold">Apa itu RailVision</h1>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-                nemo? Quia, ipsam illo!
+                Railvision adalah sistem manajemen keramaian berbasis visi komputer yang mampu mendeteksi dan menganalisis kepadatan penumpang, serta terintegrasi dengan infrastruktur stasiun
               </p>
             </div>
             <Button

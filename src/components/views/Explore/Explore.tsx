@@ -21,7 +21,7 @@ const Explore = () => {
   }, [setUrlExplore]);
 
   return (
-    <div className="mt-24 flex w-full flex-col justify-center gap-6 px-4 lg:flex-row lg:px-0">
+    <div className="mt-24 mb-8 flex w-full flex-col justify-center px-6 gap-6 lg:flex-row">
       <ExploreFilter />
       <div className="min-h-[70vh] w-full flex-1">
         <div className="mb-4 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

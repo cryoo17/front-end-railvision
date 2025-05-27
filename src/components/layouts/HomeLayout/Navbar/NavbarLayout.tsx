@@ -77,11 +77,12 @@ const NavbarLayout = () => {
       > */}
       <div className="flex items-center gap-8">
         <NavbarBrand as={Link} href={"/"}>
-          <h1
-            className={`${isTransparent ? "text-2xl font-bold text-white" : "text-2xl font-bold text-white"}`}
+          <div
+            className={`${isTransparent ? "text-2xl font-bold text-white flex flex-row"  : "text-2xl font-bold text-white flex flex-row"} `}
           >
-            RailVision
-          </h1>
+            <Image src={"/icon/icon-white.svg"} alt="icon" width={40} height={40} />
+            <h1>RailVision</h1>
+          </div>
         </NavbarBrand>
         <NavbarContent className="hidden lg:flex">
           {NAV_ITEMS.map((item) => (
@@ -103,7 +104,7 @@ const NavbarLayout = () => {
         </NavbarContent>
       </div>
       <NavbarContent justify="end">
-        <NavbarMenuToggle className="lg:hidden" />
+        <NavbarMenuToggle className="lg:hidden text-white" />
 
         <NavbarItem className="hidden lg:relative lg:flex">
           <Input
@@ -121,7 +122,7 @@ const NavbarLayout = () => {
             >
               {!isRefetchingStationSearch && !isLoadingStationSearch ? (
                 (item: IStation) => (
-                  <ListboxItem key={item._id} href={`/event/${item.slug}`}>
+                  <ListboxItem key={item._id} href={`/station/${item.slug}`}>
                     <div className="flex items-center gap-2">
                       <Image
                         src={`${item.icon}`}
