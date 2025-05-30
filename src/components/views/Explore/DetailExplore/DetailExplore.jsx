@@ -32,7 +32,7 @@ const DetailExplore = () => {
           </div>
           <div className="">
             <Image
-              src={`${dataDetailStation?.icon}`}
+              src={dataDetailStation?.icon}
               alt={dataDetailStation?.name}
               width={1920}
               height={1080}

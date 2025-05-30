@@ -1,4 +1,4 @@
-import { CiBookmark, CiGrid41, CiShoppingTag, CiWallet } from "react-icons/ci";
+import { CiBookmark, CiGrid41, CiShoppingTag, CiUser, CiWallet } from "react-icons/ci";
 import { PiTrainRegionalDuotone } from "react-icons/pi";
 
 const SIDEBAR_ADMIN = [
@@ -58,6 +58,12 @@ const SIDEBAR_USER = [
     label: "Transaction",
     href: "/user/transaction",
     icon: <CiWallet />,
+  },
+  {
+    key: "profile",
+    label: "Profile",
+    href: "/user/profile",
+    icon: <CiUser />,
   },
 ];
 
