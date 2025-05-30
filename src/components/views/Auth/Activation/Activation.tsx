@@ -18,7 +18,7 @@ const Activation = ({ status }: PropTypes) => {
         </h1>
         <p className="text-xl font-bold text-default-500">
           {status === "success"
-            ? "Thank you for register account in Acara"
+            ? "Thank you for register account in Railvision"
             : "Confirmation code is invalid"}
         </p>
         <Button
