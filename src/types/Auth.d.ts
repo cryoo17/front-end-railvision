@@ -37,7 +37,7 @@ interface IProfile {
   username?: string;
   email?: string;
   isActive?: boolean;
-  profilrePicture?: string | FileList;
+  profilePicture?: string | FileList;
   role?: string;
 }
 
