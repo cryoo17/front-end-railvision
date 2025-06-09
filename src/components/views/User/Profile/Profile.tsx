@@ -2,6 +2,7 @@
 
 import useProfile from "./useProfile";
 import ProfileCard from "./ProfileCard/ProfileCard";
+import PasswordCard from "./PasswordCard/PasswordCard";
 
 const Profile = () => {
   const {
@@ -11,28 +12,7 @@ const Profile = () => {
     isSuccessMutateUpdateProfile,
   } = useProfile();
   return (
-    // <Tabs aria-label="Options">
-    //   <Tab key="Picture" title="Picture">
-    //     <PictureTab
-    //       currentPicture={dataProfile?.profilePicture}
-    //       onUpdate={handleUpdateProfile}
-    //       isPendingUpdate={isPendingMutateUpdateProfile}
-    //       isSuccessUpdate={isSuccessMutateUpdateProfile}
-    //     />
-    //   </Tab>
-    //   <Tab key="Info" title="Info">
-    //     <InfoTab
-    //       dataProfile={dataProfile}
-    //       onUpdate={handleUpdateProfile}
-    //       isPendingUpdate={isPendingMutateUpdateProfile}
-    //       isSuccessUpdate={isSuccessMutateUpdateProfile}
-    //     />
-    //   </Tab>
-    //   {/* <Tab key="Security" title="Security">
-    //     <SecurityTab />
-    //   </Tab> */}
-    // </Tabs>
-    <div>
+    <div className="flex flex-col gap-6">
       <ProfileCard
         currentPicture={dataProfile?.profilePicture}
         onUpdatePicture={handleUpdateProfile}
@@ -43,6 +23,7 @@ const Profile = () => {
         isPendingUpdate={isPendingMutateUpdateProfile}
         isSuccessUpdate={isSuccessMutateUpdateProfile}
       />
+      <PasswordCard/>
     </div>
   );
 };
