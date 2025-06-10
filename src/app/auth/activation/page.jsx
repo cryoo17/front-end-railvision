@@ -1,3 +1,5 @@
+"use client";
+
 import AuthLayout from "@/components/layouts/AuthLayout/AuthLayout";
 import Activation from "@/components/views/Auth/Activation/Activation";
 import authServices from "@/services/auth.service";
