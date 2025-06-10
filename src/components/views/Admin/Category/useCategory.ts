@@ -3,14 +3,11 @@
 import useChangeUrl from "@/hooks/useChangeUrl";
 import categoryServices from "@/services/category.service";
 import { useQuery } from "@tanstack/react-query";
-import { useSearchParams } from "next/navigation"; // Updated import
 import { useState } from "react";
 
 const useCategory = () => {
-  const searchParams = useSearchParams(); // Mengambil query parameters
   const [selectedId, setSelectedId] = useState<string>("");
 
-  // Mengambil limit, page, dan search dari useChangeUrl yang sudah disesuaikan
   const { currentLimit, currentPage, currentSearch } = useChangeUrl();
 
   const getCategories = async () => {
@@ -31,7 +28,7 @@ const useCategory = () => {
   } = useQuery({
     queryKey: ["Categories", currentPage, currentLimit, currentSearch],
     queryFn: () => getCategories(),
-    enabled: !!currentPage && !!currentLimit, // Tidak perlu router.isReady
+    enabled: !!currentPage && !!currentLimit,
   });
 
   return {

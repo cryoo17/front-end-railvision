@@ -15,7 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from "@nextui-org/react";
-import { ChangeEvent, Key, ReactNode, useMemo } from "react";
+import { Key, ReactNode, useMemo } from "react";
 import { CiSearch } from "react-icons/ci";
 
 interface PropTypes {

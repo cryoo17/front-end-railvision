@@ -8,20 +8,17 @@ import CardStation from "@/components/ui/CardStation/CardStation";
 import ExploreFooter from "./ExploreFooter/ExploreFooter";
 import { IStation } from "@/types/Station";
 import { ImFilesEmpty } from "react-icons/im";
-import { useSearchParams } from "next/navigation";
 
 const Explore = () => {
-  const searchParams = useSearchParams();
   const { setUrlExplore } = useChangeUrl();
-  const { dataStation, isLoadingStation, isRefetchingStation, refetchStation } =
-    useExplore();
+  const { dataStation, isLoadingStation, isRefetchingStation } = useExplore();
 
   useEffect(() => {
     setUrlExplore();
   }, [setUrlExplore]);
 
   return (
-    <div className="mt-24 mb-8 flex w-full flex-col justify-center px-6 gap-6 lg:flex-row">
+    <div className="mb-8 mt-24 flex w-full flex-col justify-center gap-6 px-6 lg:flex-row">
       <ExploreFilter />
       <div className="min-h-[70vh] w-full flex-1">
         <div className="mb-4 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

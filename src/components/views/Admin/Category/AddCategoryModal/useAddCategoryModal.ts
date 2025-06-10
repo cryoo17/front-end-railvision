@@ -17,8 +17,6 @@ const schema = yup.object().shape({
 const useAddCategoryModal = () => {
   const { setToaster } = useContext(ToasterContext);
   const {
-    mutateUploadFile,
-    mutateDeleteFile,
     isPendingMutateUploadFile,
     isPendingMutateDeleteFile,
     handleUploadFile,

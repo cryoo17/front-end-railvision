@@ -12,7 +12,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import Image from "next/image";
 
 const DetailExplore = () => {
-  const { dataDetailStation, isLoadingDetailStation } = useDetailExplore();
+  const { dataDetailStation } = useDetailExplore();
   return (
     <div className="px-8 py-24">
       <Breadcrumbs>

@@ -9,7 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const useHome = () => {
   const getCategories = async () => {
-    let params = `limit=${LIMIT_CATEGORY}&page=${PAGE_DEFAULT}`;
+    const params = `limit=${LIMIT_CATEGORY}&page=${PAGE_DEFAULT}`;
     const res = await categoryServices.getCategories(params);
     const { data } = res;
     return data;

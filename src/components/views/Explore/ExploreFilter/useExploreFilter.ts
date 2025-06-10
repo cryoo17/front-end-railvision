@@ -9,7 +9,7 @@ const schema = yup.object().shape({
 });
 
 const useExploreFilter = () => {
-  const { control, reset, watch, getValues, setValue } = useForm({
+  const { control, setValue } = useForm({
     resolver: yupResolver(schema),
   });
 

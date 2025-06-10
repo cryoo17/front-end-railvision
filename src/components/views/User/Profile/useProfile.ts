@@ -3,14 +3,13 @@
 import { ToasterContext } from "@/contexts/ToasterContext";
 import authServices from "@/services/auth.service";
 import { IProfile } from "@/types/Auth";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
 
 const useProfile = () => {
   const router = useRouter();
   const { setToaster } = useContext(ToasterContext);
-  // const queryClient = useQueryClient();
 
   const getProfile = async () => {
     const { data } = await authServices.getProfile();

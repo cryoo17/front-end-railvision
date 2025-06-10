@@ -74,6 +74,12 @@ const ProfileCard = (props: PropTypes) => {
       resetUpdateInfo();
     }
   }, [isSuccessUpdate]);
+
+  useEffect(() => {
+    if (isSuccessUpdatePicture) {
+      resetUpdatePicture();
+    }
+  }, [isSuccessUpdatePicture]);
   return (
     <Card className="w-full p-4 lg:w-1/2">
       <CardHeader className="flex-col items-center">
@@ -108,7 +114,7 @@ const ProfileCard = (props: PropTypes) => {
               <Controller
                 name="profilePicture"
                 control={controlUpdatePicture}
-                render={({ field: { onChange, value, ...field } }) => (
+                render={({ field: { onChange, ...field } }) => (
                   <InputFile
                     {...field}
                     onDelete={() => handleDeletePicture(onChange)}
@@ -132,10 +138,12 @@ const ProfileCard = (props: PropTypes) => {
                 color="primary"
                 className="disabled:bg-default-500"
                 disabled={
-                  isPendingMutateUploadFile || isPendingUpdate || !preview
+                  isPendingMutateUploadFile ||
+                  isPendingUpdatePicture ||
+                  !preview
                 }
               >
-                {isPendingUpdate ? (
+                {isPendingUpdatePicture ? (
                   <Spinner size="sm" color="white" />
                 ) : (
                   "Save Changes"

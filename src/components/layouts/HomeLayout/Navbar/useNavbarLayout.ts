@@ -22,7 +22,7 @@ const useNavbarLayout = () => {
   });
 
   const getStations = async () => {
-    let params = `search=${search}&limit=${LIMIT_STATION}&page=${PAGE_DEFAULT}&isPublish=true`;
+    const params = `search=${search}&limit=${LIMIT_STATION}&page=${PAGE_DEFAULT}&isPublish=true`;
     const res = await stationServices.getStations(params);
     const { data } = res;
     return data;
