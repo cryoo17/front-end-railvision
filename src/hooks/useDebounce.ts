@@ -3,7 +3,7 @@ import { useRef } from "react";
 const useDebounce = () => {
   const debounceTimeout = useRef<NodeJS.Timeout | null>(null);
 
-  const debounce = (func: (...args: any[]) => void, delay: number) => {
+  const debounce = (func: () => void, delay: number) => {
     if (debounceTimeout.current) clearTimeout(debounceTimeout.current);
     debounceTimeout.current = setTimeout(() => {
       func();
