@@ -8,18 +8,17 @@ export const metadata: Metadata = {
   description: "Activation",
 };
 
-const ActivationPage = async ({
-  searchParams,
-}: {
-  searchParams: { code: string };
-}) => {
-  const code = searchParams.code;
+interface ActivationPageProps {
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+const ActivationPage = async ({ searchParams }: ActivationPageProps) => {
+  const code = searchParams.code as string;
   let status: "success" | "failed";
 
   try {
     const result = await authServices.activation({ code });
     status = result.data.data ? "success" : "failed";
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     status = "failed";
   }
