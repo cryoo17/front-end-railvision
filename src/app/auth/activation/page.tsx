@@ -14,7 +14,9 @@ interface ActivationPageProps {
   };
 }
 
-const ActivationPage = async ({ searchParams }: ActivationPageProps) => {
+export default async function ActivationPage({
+  searchParams,
+}: ActivationPageProps) {
   const { code } = searchParams;
 
   let status: "success" | "failed" = "failed";
@@ -26,15 +28,9 @@ const ActivationPage = async ({ searchParams }: ActivationPageProps) => {
         status = "success";
       }
     } catch (error) {
-      console.error("Activation Error:", error);
+      console.error("Activation API Error:", error);
     }
   }
 
-  return (
-    <AuthLayout>
-      <Activation status={status} />
-    </AuthLayout>
-  );
-};
-
-export default ActivationPage;
+  return <Activation status={status} />;
+}
