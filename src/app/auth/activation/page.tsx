@@ -7,18 +7,16 @@ export const metadata: Metadata = {
   title: "Acara | Activation",
 };
 
-interface PageProps {
-  searchParams: {
-    code?: string;
-  };
-}
-
-const ActivationPage = async ({ searchParams }: PageProps) => {
+const ActivationPage = async ({
+  searchParams,
+}: {
+  searchParams: { code?: string };
+}) => {
   let status: "success" | "failed" = "failed";
 
   const code = searchParams.code;
 
-  if (code) {
+  if (code && typeof code === "string") {
     try {
       const result = await authServices.activation({ code });
       if (result.data.data) {
