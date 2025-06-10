@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import NavbarLayout from "./Navbar/NavbarLayout";
 import FooterLayout from "./FooterLayout/FooterLayout";
 
@@ -14,7 +14,9 @@ const HomeLayout = (props: PropTypes) => {
   return (
     <section>
       <NavbarLayout />
-      <div /*className="py-10 md:p-6"*/>{children}</div>
+      <div /*className="py-10 md:p-6"*/>
+        <Suspense>{children}</Suspense>
+      </div>
       <FooterLayout />
     </section>
   );

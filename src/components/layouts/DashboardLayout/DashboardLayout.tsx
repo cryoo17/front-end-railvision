@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { ReactNode, Suspense, useState } from "react";
 import { SIDEBAR_ADMIN, SIDEBAR_USER } from "./DashboardLayout.constants";
 import { Navbar, NavbarMenuToggle } from "@nextui-org/react";
 import DashboardLayoutSidebar from "./DashboardLayoutSidebar/DashboardLayoutSidebar";
@@ -38,7 +38,7 @@ const DashboardLayout = (props: PropTypes) => {
             />
           </Navbar>
           <p className="mb-4 text-small">{description}</p>
-          {children}
+          <Suspense>{children}</Suspense>
         </section>
       </section>
     </>
