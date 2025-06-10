@@ -1,31 +1,13 @@
 import AuthLayout from "@/components/layouts/AuthLayout/AuthLayout";
 import Activation from "@/components/views/Auth/Activation/Activation";
-import authServices from "@/services/auth.service";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Acara | Activation",
 };
 
-const ActivationPage = async ({
-  searchParams,
-}: {
-  searchParams: { code?: string };
-}) => {
-  let status: "success" | "failed" = "failed";
-
-  const code = searchParams.code;
-
-  if (code && typeof code === "string") {
-    try {
-      const result = await authServices.activation({ code });
-      if (result.data.data) {
-        status = "success";
-      }
-    } catch (error) {
-      console.error("Activation failed:", error);
-    }
-  }
+const ActivationPage = async () => {
+  const status: "success" | "failed" = "success";
 
   return (
     <AuthLayout>
