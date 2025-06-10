@@ -49,7 +49,7 @@ const usePassword = () => {
       setValueUpdatePassword("confirmPassword", "");
       setToaster({
         type: "success",
-        message: "Success update profile",
+        message: "Success update password",
       });
     },
   });

@@ -9,36 +9,98 @@ import {
   Input,
   Image,
 } from "@nextui-org/react";
+import useDashboard from "./useDashboard";
+import { Controller } from "react-hook-form";
 
 const Dashboard = () => {
+  const {
+    control,
+    errors,
+    handleSubmitForm,
+    handleAddPrediction,
+    isPendingMutateAddPrediction,
+    isSuccessMutateAddPrediction,
+    handleUploadIcon,
+    isPendingMutateUploadFile,
+    handleDeleteIcon,
+    isPendingMutateDeleteFile,
+    handleOnClose,
+    preview,
+  } = useDashboard();
+
   return (
-    <section>
+    <section className="container mx-auto p-4">
       <Card className="mb-8 p-4">
-        <CardHeader className="flex-col items-start">
-          <Input label="Masukkan nama Stasiun" type="text" />
-        </CardHeader>
-        <CardBody className="flex flex-col gap-4 overflow-visible">
-          <InputFile />
-          <Button className="w-fit" color="primary">
-            Button
-          </Button>
+        <CardBody>
+          <form
+            onSubmit={handleSubmitForm(handleAddPrediction)}
+            className="flex flex-col gap-4"
+          >
+            <Controller
+              name="name"
+              control={control}
+              render={({ field }) => (
+                <Input
+                  {...field}
+                  label="Nama Stasiun"
+                  variant="bordered"
+                  type="text"
+                  isInvalid={!!errors.name}
+                  errorMessage={errors.name?.message}
+                />
+              )}
+            />
+
+            <Controller
+              name="icon"
+              control={control}
+              render={({ field: { onChange, ...field } }) => (
+                <InputFile
+                  {...field}
+                  onDelete={() => handleDeleteIcon(onChange)}
+                  onUpload={(files) => handleUploadIcon(files, onChange)}
+                  isDeleting={isPendingMutateDeleteFile}
+                  isUploading={isPendingMutateUploadFile}
+                  isInvalid={errors.icon !== undefined}
+                  errorMessage={errors.icon?.message}
+                  isDropable
+                  preview={typeof preview === "string" ? preview : ""}
+                />
+              )}
+            />
+
+            <Button
+              type="submit"
+              color="primary"
+              className="w-fit"
+              isLoading={isPendingMutateAddPrediction}
+            >
+              Submit
+            </Button>
+          </form>
         </CardBody>
       </Card>
 
-      <div className="flex flex-col items-center justify-center">
-        <Card className="flex w-2/3 p-4">
-          <CardHeader className="flex-col px-4 pb-0 pt-2">
-            <Image
-              alt="Card background"
-              className="rounded-xl object-cover"
-              src="https://heroui.com/images/hero-card-complete.jpeg"
-              width={1000}
-            />
+      <div className="flex flex-col items-center">
+        <h2 className="mb-4 text-xl font-bold">Hasil</h2>
+        <Card className="w-full max-w-2xl">
+          <CardHeader className="flex-col px-4 pb-0 pt-4">
+            {preview ? (
+              <Image
+                alt="Prediction preview"
+                className="h-48 rounded-xl object-cover"
+                src={preview}
+                width="100%"
+              />
+            ) : (
+              <Image
+                alt="Sample prediction"
+                className="h-48 rounded-xl object-cover"
+                // src={icon}
+                width="100%"
+              />
+            )}
           </CardHeader>
-          <CardBody className="p-4">
-            <h2 className="text-2xl font-bold">Stasiun Manggarai</h2>
-            <h4 className="text-2xl font-bold">Status: Padat</h4>
-          </CardBody>
         </Card>
       </div>
     </section>
