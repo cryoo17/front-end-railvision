@@ -9,19 +9,25 @@ export const metadata: Metadata = {
 };
 
 interface ActivationPageProps {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: {
+    code?: string;
+  };
 }
 
 const ActivationPage = async ({ searchParams }: ActivationPageProps) => {
-  const code = searchParams.code as string;
-  let status: "success" | "failed";
+  const { code } = searchParams;
 
-  try {
-    const result = await authServices.activation({ code });
-    status = result.data.data ? "success" : "failed";
-  } catch (error) {
-    console.error("Activation failed:", error);
-    status = "failed";
+  let status: "success" | "failed" = "failed";
+
+  if (code) {
+    try {
+      const result = await authServices.activation({ code });
+      if (result?.data?.data) {
+        status = "success";
+      }
+    } catch (error) {
+      console.error("Activation Error:", error);
+    }
   }
 
   return (
