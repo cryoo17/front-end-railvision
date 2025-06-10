@@ -20,6 +20,7 @@ const ActivationPage = async ({ searchParams }: ActivationPageProps) => {
     const result = await authServices.activation({ code });
     status = result.data.data ? "success" : "failed";
   } catch (error) {
+    console.error("Activation failed:", error);
     status = "failed";
   }
 
