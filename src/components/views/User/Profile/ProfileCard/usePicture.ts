@@ -1,3 +1,5 @@
+"use client";
+
 import useMediaHandling from "@/hooks/useMediaHandling";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";

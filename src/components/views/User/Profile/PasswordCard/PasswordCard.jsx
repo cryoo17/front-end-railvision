@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Button,
   Card,
@@ -29,7 +31,10 @@ const PasswordCard = () => {
       </CardHeader>
       <CardBody>
         <section>
-          <form onSubmit={handleSubmitUpdatePassword(handleUpdatePassword)} className="flex flex-col gap-4">
+          <form
+            onSubmit={handleSubmitUpdatePassword(handleUpdatePassword)}
+            className="flex flex-col gap-4"
+          >
             <Controller
               name="oldPassword"
               control={controlUpdatePassword}
@@ -46,7 +51,7 @@ const PasswordCard = () => {
               )}
             />
             <Controller
-              name="newPassword"
+              name="password"
               control={controlUpdatePassword}
               render={({ field }) => (
                 <Input
@@ -55,8 +60,8 @@ const PasswordCard = () => {
                   variant="bordered"
                   labelPlacement="outside"
                   placeholder="Masukkan password baru"
-                  isInvalid={errorsUpdatePassword.newPassword !== undefined}
-                  errorMessage={errorsUpdatePassword.newPassword?.message}
+                  isInvalid={errorsUpdatePassword.password !== undefined}
+                  errorMessage={errorsUpdatePassword.password?.message}
                 />
               )}
             />
@@ -77,7 +82,7 @@ const PasswordCard = () => {
             />
             <Button
               color="primary"
-              className="disabled:bg-default-500 w-fit justify-end"
+              className="w-fit justify-end disabled:bg-default-500"
               type="submit"
               isLoading={isPendingMutateUpdatePassword}
               isDisabled={isPendingMutateUpdatePassword}

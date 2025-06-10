@@ -1,3 +1,5 @@
+"use client";
+
 import { useContext } from "react";
 import * as yup from "yup";
 import { ToasterContext } from "@/contexts/ToasterContext";
@@ -8,7 +10,7 @@ import { useMutation } from "@tanstack/react-query";
 
 const schemaUpdatePassword = yup.object().shape({
   oldPassword: yup.string().required("Old password is required"),
-  newPassword: yup.string().required("New password is required"),
+  password: yup.string().required("New password is required"),
   confirmPassword: yup.string().required("Confirm password is required"),
 });
 
@@ -41,10 +43,10 @@ const usePassword = () => {
       });
     },
     onSuccess: () => {
-        resetUpdatePassword();
-        setValueUpdatePassword("oldPassword", "");
-        setValueUpdatePassword("newPassword", "");
-        setValueUpdatePassword("confirmPassword", "");
+      resetUpdatePassword();
+      setValueUpdatePassword("oldPassword", "");
+      setValueUpdatePassword("password", "");
+      setValueUpdatePassword("confirmPassword", "");
       setToaster({
         type: "success",
         message: "Success update profile",
@@ -60,7 +62,7 @@ const usePassword = () => {
     errorsUpdatePassword,
     isPendingMutateUpdatePassword,
     handleUpdatePassword,
-  }
+  };
 };
 
 export default usePassword;

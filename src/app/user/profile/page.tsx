@@ -1,3 +1,5 @@
+"use client";
+
 import DashboardLayout from "@/components/layouts/DashboardLayout/DashboardLayout";
 import Profile from "@/components/views/User/Profile/Profile";
 
