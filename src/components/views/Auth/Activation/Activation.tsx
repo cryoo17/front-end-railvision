@@ -7,8 +7,9 @@ interface PropTypes {
   status: "success" | "failed";
 }
 
-const Activation = ({ status }: PropTypes) => {
+const Activation = (props: PropTypes) => {
   const router = useRouter();
+  const { status } = props;
 
   return (
     <div className="flex w-screen flex-col items-center justify-center p-4">

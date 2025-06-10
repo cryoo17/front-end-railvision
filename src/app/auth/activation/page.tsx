@@ -1,29 +1,31 @@
-"use client";
-
 import AuthLayout from "@/components/layouts/AuthLayout/AuthLayout";
 import Activation from "@/components/views/Auth/Activation/Activation";
 import authServices from "@/services/auth.service";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Acara | Activation",
 };
 
-/**
- * Ini adalah Server Component, jadi kita bisa membuatnya async dan fetch data di sini.
- * @param {{ searchParams: { code: string } }} props - searchParams menggantikan context.query
- */
-const ActivationPage = async ({ searchParams }) => {
-  const { code } = searchParams;
-  let status = "failed";
+interface PageProps {
+  searchParams: {
+    code?: string;
+  };
+}
+
+const ActivationPage = async ({ searchParams }: PageProps) => {
+  let status: "success" | "failed" = "failed";
+
+  const code = searchParams.code;
 
   if (code) {
     try {
-      const result = await authServices.activation({ code: code });
+      const result = await authServices.activation({ code });
       if (result.data.data) {
         status = "success";
       }
     } catch (error) {
-      console.error("Activation failed on server:", error);
+      console.error("Activation failed:", error);
     }
   }
 
