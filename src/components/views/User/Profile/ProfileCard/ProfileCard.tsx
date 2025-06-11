@@ -81,12 +81,9 @@ const ProfileCard = (props: PropTypes) => {
     }
   }, [isSuccessUpdatePicture]);
   return (
-    <Card className="w-full p-4 lg:w-1/2">
+    <Card className="w-full p-4 lg:max-w-2xl">
       <CardHeader className="flex-col items-center">
-        <h1 className="w-full text-xl font-bold">User Information</h1>
-        <p className="w-full text-small text-default-400">
-          Manage information of this account
-        </p>
+        <h1 className="w-full text-xl font-bold">Informasi User</h1>
       </CardHeader>
       <CardBody>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -97,7 +94,7 @@ const ProfileCard = (props: PropTypes) => {
             >
               <div className="flex flex-col items-center gap-2 text-center">
                 <p className="self-start text-sm font-medium text-default-700">
-                  Current Picture
+                  Foto profile
                 </p>
                 <Skeleton
                   isLoaded={!!currentPicture}
@@ -126,7 +123,7 @@ const ProfileCard = (props: PropTypes) => {
                     isDropable
                     label={
                       <p className="mb-2 text-sm font-medium text-default-700">
-                        Upload New Picture
+                        Unggah foto baru
                       </p>
                     }
                     preview={typeof preview === "string" ? preview : ""}
@@ -146,7 +143,7 @@ const ProfileCard = (props: PropTypes) => {
                 {isPendingUpdatePicture ? (
                   <Spinner size="sm" color="white" />
                 ) : (
-                  "Save Changes"
+                  "Simpan perubahan"
                 )}
               </Button>
             </form>
@@ -200,7 +197,7 @@ const ProfileCard = (props: PropTypes) => {
                     render={({ field }) => (
                       <Input
                         {...field}
-                        label="Fullname"
+                        label="Nama Lengkap"
                         variant="bordered"
                         labelPlacement="outside"
                         placeholder="Input your fullname"
@@ -221,7 +218,7 @@ const ProfileCard = (props: PropTypes) => {
                   {isPendingUpdate ? (
                     <Spinner size="sm" color="white" />
                   ) : (
-                    "Save Changes"
+                    "Simpan perubahan"
                   )}
                 </Button>
               </div>

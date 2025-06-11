@@ -11,17 +11,17 @@ import { useRouter } from "next/navigation";
 import { ToasterContext } from "@/contexts/ToasterContext";
 
 const registerSchema = yup.object().shape({
-  fullName: yup.string().required("Please input your fullname"),
-  username: yup.string().required("Please input your username"),
-  email: yup.string().email().required("Please input your email"),
+  fullName: yup.string().required("Silahkan masukkan nama lengkap"),
+  username: yup.string().required("Silahkan masukkan username"),
+  email: yup.string().email().required("Silahkan masukkan email"),
   password: yup
     .string()
-    .min(8, "Minimal 8 Characters")
-    .required("Please input your password"),
+    .min(8, "Minimal 8 Karakter")
+    .required("Silakan masukkan password"),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password"), ""], "Password not match")
-    .required("Please input your password confirmation"),
+    .oneOf([yup.ref("password"), ""], "Password tidak cocok")
+    .required("Silahkan masukkan konfirmasi password"),
 });
 
 const useRegister = () => {
@@ -65,7 +65,7 @@ const useRegister = () => {
       reset();
       setToaster({
         type: "success",
-        message: "Register Success",
+        message: "Daftar berhasil",
       });
       router.push("/auth/register/success");
     },

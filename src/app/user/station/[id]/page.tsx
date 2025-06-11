@@ -4,7 +4,7 @@ import DetailStation from "@/components/views/User/Station/DetailStation/DetailS
 const UserDetailStationPage = () => {
   return (
     <DashboardLayout
-      title="Detail Station"
+      title="Detail Stasiun"
       description=""
       type="user"
     >

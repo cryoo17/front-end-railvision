@@ -43,22 +43,22 @@ const SIDEBAR_USER = [
   },
   {
     key: "station",
-    label: "Station",
+    label: "Stasiun",
     href: "/user/station",
     icon: <PiTrainRegionalDuotone />,
   },
   {
     key: "category",
-    label: "Category",
+    label: "Kategori",
     href: "/user/category",
     icon: <CiShoppingTag />,
   },
-  {
-    key: "transaction",
-    label: "Transaction",
-    href: "/user/transaction",
-    icon: <CiWallet />,
-  },
+  // {
+  //   key: "transaction",
+  //   label: "Transaction",
+  //   href: "/user/transaction",
+  //   icon: <CiWallet />,
+  // },
   {
     key: "profile",
     label: "Profile",

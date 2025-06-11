@@ -15,12 +15,12 @@ const Activation = (props: PropTypes) => {
     <div className="flex w-screen flex-col items-center justify-center p-4">
       <div className="flex flex-col items-center gap-2 text-center">
         <h1 className="text-3xl font-bold text-blue-500">
-          {status === "success" ? "Activation Success" : "Activation Failed"}
+          {status === "success" ? "Aktifasi Berhasil" : "Aktifasi Gagal"}
         </h1>
         <p className="text-xl font-bold text-default-500">
           {status === "success"
-            ? "Thank you for register account in Railvision"
-            : "Confirmation code is invalid"}
+            ? "Terima kasih telah mengaktifkan akun Anda!"
+            : "Kode aktifasi tidak valid"}
         </p>
         <Button
           className="mt-4 w-fit"
@@ -28,7 +28,7 @@ const Activation = (props: PropTypes) => {
           color="primary"
           onPress={() => router.push("/")}
         >
-          Back to home
+          Kembali ke home
         </Button>
       </div>
     </div>

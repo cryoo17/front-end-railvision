@@ -72,10 +72,18 @@ const Dashboard = () => {
             <Button
               type="submit"
               color="primary"
-              className="w-fit"
-              isLoading={isPendingMutateAddPrediction}
+              className="w-fit disabled:bg-default-500"
+              disabled={
+                isPendingMutateUploadFile ||
+                isPendingMutateAddPrediction ||
+                !preview
+              }
             >
-              Submit
+              {isPendingMutateAddPrediction ? (
+                <spinner size="sm" color="white" />
+              ) : (
+                "Submit"
+              )}
             </Button>
           </form>
         </CardBody>

@@ -4,8 +4,8 @@ import DetailCategory from "@/components/views/User/Category/DetailCategory/Deta
 const AdminDetailCategoryPage = () => {
   return (
     <DashboardLayout
-      title="Detail Category"
-      description="Information for this category"
+      title="Detail Kategori"
+      description=""
       type="user"
     >
       <DetailCategory />

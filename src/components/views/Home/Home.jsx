@@ -53,8 +53,8 @@ const Home = () => {
         <div className="flex-col lg:mt-32 flex lg:flex-row items-center justify-between mx-6 gap-4">
           <div className="flex flex-col gap-4 lg:gap-16">
             <div className="flex flex-col gap-4">
-              <h1 className="text-6xl font-bold">Apa itu RailVision</h1>
-              <p>
+              <h1 className="text-6xl font-bold">Apa itu RailVision?</h1>
+              <p className="text-lg lg:text-xl">
                 Railvision adalah sistem manajemen keramaian berbasis visi komputer yang mampu mendeteksi dan menganalisis kepadatan penumpang, serta terintegrasi dengan infrastruktur stasiun
               </p>
             </div>
@@ -70,8 +70,8 @@ const Home = () => {
             <Image
               src={"/images/image 1.png"}
               alt="gambar"
-              height={200}
-              width={500}
+              height={100}
+              width={900}
             />
           </div>
         </div>

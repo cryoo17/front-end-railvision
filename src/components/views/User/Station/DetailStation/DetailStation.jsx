@@ -12,13 +12,13 @@ const DetailStation = () => {
 
   return (
     <Tabs aria-label="Options">
-      <Tab key="icon" title="Icon">
+      <Tab key="icon" title="Gambar">
         <IconTab currentIcon={dataStation?.icon} />
       </Tab>
       <Tab key="info" title="Info">
         <InfoTab dataStation={dataStation} />
       </Tab>
-      <Tab key="location" title="Location">
+      <Tab key="location" title="Lokasi">
         <LocationTab
           dataStation={dataStation}
           dataDefaultRegion={dataDefaultRegion?.data?.data[0]?.name}

@@ -22,11 +22,11 @@ const Register = () => {
     <div className="flex w-full flex-col items-center justify-center lg:flex-row">
       <Card>
         <CardBody className="p-8">
-          <h2 className="text-2xl font-bold text-blue-500">Create Account</h2>
+          <h2 className="text-2xl font-bold text-blue-500">Buat Akun</h2>
           <p className="mb-4 mt-2 text-small">
-            Have an account?&nbsp;
+            Sudah punya akun?&nbsp;
             <Link href={"/auth/login"} className="font-semibold text-blue-400">
-              Login here
+              Masuk disini
             </Link>
           </p>
           {errors.root && (
@@ -48,7 +48,7 @@ const Register = () => {
                 <Input
                   {...field}
                   type="text"
-                  label="Fullname"
+                  label="Nama Lengkap"
                   variant="bordered"
                   autoComplete="off"
                   isInvalid={errors.fullName !== undefined}
@@ -121,7 +121,7 @@ const Register = () => {
                 <Input
                   {...field}
                   type={visiblePassword.confirmPassword ? "text" : "password"}
-                  label="Password Confirmation"
+                  label="Konfirmasi Password"
                   variant="bordered"
                   autoComplete="off"
                   isInvalid={errors.confirmPassword !== undefined}
@@ -146,7 +146,7 @@ const Register = () => {
               {isPendingRegister ? (
                 <Spinner color="white" size="sm" />
               ) : (
-                "Register"
+                "Daftar"
               )}
             </Button>
           </form>

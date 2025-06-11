@@ -44,10 +44,7 @@ const LocationTab = (props) => {
   return (
     <Card className="w-full p-4 lg:w-1/2">
       <CardHeader className="flex-col items-center">
-        <h1 className="w-full text-xl font-bold">Station Location</h1>
-        <p className="w-full text-small text-default-400">
-          Manage location of this station
-        </p>
+        <h1 className="w-full text-xl font-bold">Lokasi Stasiun</h1>
       </CardHeader>
       <CardBody>
         <form
@@ -73,7 +70,7 @@ const LocationTab = (props) => {
                         : []
                     }
                     defaultInputValue={dataDefaultRegion}
-                    label="Location"
+                    label="Lokasi"
                     variant="bordered"
                     labelPlacement="outside"
                   >

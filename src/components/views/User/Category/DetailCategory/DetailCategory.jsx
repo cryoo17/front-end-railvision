@@ -10,7 +10,7 @@ const DetailCategory = () => {
 
   return (
     <Tabs aria-label="Options">
-      <Tab key="icon" title="Icon">
+      <Tab key="icon" title="Ikon">
         <IconTab currentIcon={dataCategory?.icon} />
       </Tab>
       <Tab key="info" title="Info">

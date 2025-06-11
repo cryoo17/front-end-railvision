@@ -11,7 +11,7 @@ interface PropTypes {
 const HomeCategory = (props: PropTypes) => {
   const { category, isLoadingCategory } = props;
   return (
-    <Card className="mx-6 mb-8 p-8 h-fit w-2/3">
+    <Card className="mx-6 mb-8 p-8 h-fit lg:w-2/3">
       <CardHeader className="p-0">
         <h1 className="text-2xl font-bold text-blue-700">
           Kategori Stasiun

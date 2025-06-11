@@ -80,7 +80,7 @@ const Station = () => {
                     className="mt-4 w-full rounded bg-blue-500 py-2 text-white hover:bg-blue-600"
                     onClick={() => router.push(`/user/station/${station._id}`)}
                   >
-                    View Details
+                    Lihat Detail
                   </button>
                 </CardBody>
               </Card>
@@ -88,10 +88,10 @@ const Station = () => {
           </div>
         )}
         {(isLoadingStation || isRefetchingStation) && (
-          <p className="text-center text-gray-500">Loading categories...</p>
+          <p className="text-center text-gray-500">Loading...</p>
         )}
         {dataStation?.data?.length === 0 && (
-          <p className="text-center text-gray-500">Station is empty</p>
+          <p className="text-center text-gray-500">Stasiun kosong</p>
         )}
       </section>
     </>

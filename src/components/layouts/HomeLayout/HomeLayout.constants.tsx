@@ -31,12 +31,12 @@ const NAV_ITEMS = [
 
 const BUTTON_ITEMS = [
   {
-    label: "Register",
+    label: "Daftar",
     href: "/auth/register",
     color: "default",
   },
   {
-    label: "Login",
+    label: "Masuk",
     href: "/auth/login",
     color: "warning",
   },

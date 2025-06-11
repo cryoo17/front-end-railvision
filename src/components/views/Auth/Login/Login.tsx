@@ -22,14 +22,14 @@ const Login = () => {
     <div className="flex w-full flex-col items-center justify-center lg:flex-row">
       <Card>
         <CardBody className="p-8">
-          <h2 className="text-2xl font-bold text-blue-500">Login</h2>
+          <h2 className="text-2xl font-bold text-blue-500">Masuk</h2>
           <p className="mb-4 mt-2 text-small">
-            Don{"'"}t have an account?&nbsp;
+            Tidak punya akun?&nbsp;
             <Link
               href={"/auth/register"}
               className="font-semibold text-blue-400"
             >
-              Register here
+              Daftar disini
             </Link>
           </p>
           {errors.root && (
@@ -88,7 +88,7 @@ const Login = () => {
               )}
             />
             <Button color="primary" size="lg" type="submit">
-              {isPendingLogin ? <Spinner color="white" size="sm" /> : "Login"}
+              {isPendingLogin ? <Spinner color="white" size="sm" /> : "Masuk"}
             </Button>
           </form>
         </CardBody>

@@ -49,7 +49,7 @@ const Category = () => {
                   className="mt-4 w-full rounded bg-blue-500 py-2 text-white hover:bg-blue-600"
                   onClick={() => router.push(`/user/category/${category._id}`)}
                 >
-                  View Details
+                  Lihat Detail
                 </button>
               </CardBody>
             </Card>
@@ -57,10 +57,10 @@ const Category = () => {
         </div>
       )}
       {(isLoadingCategory || isRefetchingCategory) && (
-        <p className="text-center text-gray-500">Loading categories...</p>
+        <p className="text-center text-gray-500">Loading...</p>
       )}
       {dataCategory?.data?.length === 0 && (
-        <p className="text-center text-gray-500">Category is empty</p>
+        <p className="text-center text-gray-500">Kategori kosong</p>
       )}
     </section>
   );

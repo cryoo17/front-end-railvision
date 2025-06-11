@@ -23,10 +23,8 @@ const InfoTab = (props) => {
   return (
     <Card className="w-full p-4 lg:w-1/2">
       <CardHeader className="flex-col items-center">
-        <h1 className="w-full text-xl font-bold">Category Information</h1>
-        <p className="w-full text-small text-default-400">
-          Information of this category
-        </p>
+        <h1 className="w-full text-xl font-bold">Informasi Kategori</h1>
+        
       </CardHeader>
       <CardBody>
         <form className="flex flex-col gap-4">
@@ -38,7 +36,7 @@ const InfoTab = (props) => {
                 <Input
                   {...field}
                   isReadOnly
-                  label="Name"
+                  label="Nama Kategori"
                   variant="bordered"
                   labelPlacement="outside"
                   type="text"
@@ -55,7 +53,7 @@ const InfoTab = (props) => {
                 <Textarea
                   {...field}
                   isReadOnly
-                  label="Description"
+                  label="Deskripsi"
                   variant="bordered"
                   labelPlacement="outside"
                 />

@@ -41,7 +41,7 @@ const useLogin = () => {
     });
 
     if (result?.error && result.status === 401) {
-      throw new Error("Login Failed");
+      throw new Error("Masuk gagal");
     }
   };
 
@@ -50,14 +50,14 @@ const useLogin = () => {
     onError: () => {
       setToaster({
         type: "error",
-        message: "Your credential is wrong",
+        message: "Masuk gagal, silakan coba lagi",
       });
     },
     onSuccess: () => {
       reset();
       setToaster({
         type: "success",
-        message: "Login success",
+        message: "Masuk berhasil",
       });
       router.push(callbackUrl);
     },

@@ -77,7 +77,7 @@ const DashboardLayoutSidebar = ({ sidebarItems, isOpen }: PropTypes) => {
           onPress={() => signOut()}
         >
           <CiLogout />
-          Logout
+          Keluar
         </Button>
       </div>
     </section>

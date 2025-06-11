@@ -17,7 +17,7 @@ const DetailExplore = () => {
     <div className="px-8 py-24">
       <Breadcrumbs>
         <BreadcrumbItem href="/">Home</BreadcrumbItem>
-        <BreadcrumbItem href="/station">Station</BreadcrumbItem>
+        <BreadcrumbItem href="/station">Stasiun</BreadcrumbItem>
         <BreadcrumbItem>{dataDetailStation?.name}</BreadcrumbItem>
       </Breadcrumbs>
 
@@ -52,7 +52,7 @@ const DetailExplore = () => {
                 <Chip color="success">Tidak Padat</Chip>
               )}
             </Tab>
-            <Tab key="Description" title="Description">
+            <Tab key="Description" title="Deskripsi">
               <h2>{dataDetailStation?.description}</h2>
             </Tab>
           </Tabs>

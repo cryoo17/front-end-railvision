@@ -29,14 +29,14 @@ const ExploreFilter = () => {
                 {...field}
                 defaultSelectedKey={`${currentCategory}`}
                 defaultItems={dataCategory?.data.data || []}
-                label="Category"
+                label="Kategori"
                 variant="bordered"
                 labelPlacement="outside"
                 onSelectionChange={(value) => {
                   onChange(value);
                   handleChangeCategory(value !== null ? `${value}` : "");
                 }}
-                placeholder="Search category here"
+                placeholder="Cari Kategori"
               >
                 {(category: ICategory) => (
                   <AutocompleteItem key={`${category._id}`}>

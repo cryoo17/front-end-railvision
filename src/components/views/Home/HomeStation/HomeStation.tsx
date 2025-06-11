@@ -13,9 +13,9 @@ const HomeStation = (props: PropTypes) => {
   return (
     <section className="mx-6 mb-16">
       <div className="mb-2 flex items-center justify-between px-6 lg:px-0">
-        <h2 className="text-2xl font-bold text-blue-700">{title}</h2>
+        <h2 className="text-3xl font-bold text-blue-700">{title}</h2>
         <Link href={"/station"} className="font-semibold text-foreground-500">
-          See More
+          Lihat Lebih Banyak
         </Link>
       </div>
       <div className="grid auto-cols-[20rem] grid-flow-col gap-6 overflow-x-auto py-2 pb-4 lg:grid-cols-4 lg:px-1">
