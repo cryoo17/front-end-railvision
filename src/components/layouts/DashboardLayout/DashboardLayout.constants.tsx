@@ -1,4 +1,4 @@
-import { CiBookmark, CiGrid41, CiShoppingTag, CiUser, CiWallet } from "react-icons/ci";
+import { CiGrid41, CiShoppingTag, CiUser } from "react-icons/ci";
 import { PiTrainRegionalDuotone } from "react-icons/pi";
 
 const SIDEBAR_ADMIN = [
@@ -20,18 +20,18 @@ const SIDEBAR_ADMIN = [
     href: "/admin/category",
     icon: <CiShoppingTag />,
   },
-  {
-    key: "banner",
-    label: "Banner",
-    href: "/admin/banner",
-    icon: <CiBookmark />,
-  },
-  {
-    key: "transaction",
-    label: "Transaction",
-    href: "/admin/transaction",
-    icon: <CiWallet />,
-  },
+  // {
+  //   key: "banner",
+  //   label: "Banner",
+  //   href: "/admin/banner",
+  //   icon: <CiBookmark />,
+  // },
+  // {
+  //   key: "transaction",
+  //   label: "Transaction",
+  //   href: "/admin/transaction",
+  //   icon: <CiWallet />,
+  // },
 ];
 
 const SIDEBAR_USER = [

@@ -3,18 +3,12 @@
 import useChangeUrl from "@/hooks/useChangeUrl";
 import stationServices from "@/services/station.service";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 
 const useStation = () => {
-  const [selectedId, setSelectedId] = useState("");
-  const { currentLimit, currentPage, currentSearch, handleChangeLimit } =
-    useChangeUrl();
+  const { currentLimit, currentPage, currentCategory } = useChangeUrl();
 
   const getStations = async () => {
-    let params = `limit=${currentLimit}&page=${currentPage}`;
-    if (currentSearch) {
-      params += `&search=${currentSearch}`;
-    }
+    const params = `limit=${currentLimit}&page=${currentPage}&category=${currentCategory}`;
     const res = await stationServices.getStations(params);
     const { data } = res;
     return data;
@@ -26,9 +20,9 @@ const useStation = () => {
     isRefetching: isRefetchingStation,
     refetch: refetchStation,
   } = useQuery({
-    queryKey: ["Stations", currentPage, currentLimit, currentSearch],
+    queryKey: ["Stations", currentPage, currentLimit, currentCategory],
     queryFn: () => getStations(),
-    enabled: !!currentPage && !!currentLimit,
+    // enabled: !!searchParams.get("page") && !!currentPage && !!currentLimit,
   });
 
   return {
@@ -36,10 +30,6 @@ const useStation = () => {
     isLoadingStation,
     isRefetchingStation,
     refetchStation,
-    selectedId,
-    setSelectedId,
-    currentLimit,
-    handleChangeLimit,
   };
 };
 

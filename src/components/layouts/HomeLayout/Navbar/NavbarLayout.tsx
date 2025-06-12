@@ -78,14 +78,42 @@ const NavbarLayout = () => {
       <div className="flex items-center gap-8">
         <NavbarBrand as={Link} href={"/"}>
           <div
-            className={`${isTransparent ? "text-2xl font-bold text-white flex flex-row"  : "text-2xl font-bold text-white flex flex-row"} `}
+            className={`${isTransparent ? "flex flex-row text-2xl font-bold text-white" : "flex flex-row text-2xl font-bold text-white"} `}
           >
-            <Image src={"/icon/icon-white.svg"} alt="icon" width={40} height={40} />
+            <Image
+              src={"/icon/icon-white.svg"}
+              alt="icon"
+              width={40}
+              height={40}
+            />
             <h1>RailVision</h1>
           </div>
         </NavbarBrand>
-        <NavbarContent className="hidden lg:flex">
+        {/* <NavbarContent className="hidden lg:flex">
           {NAV_ITEMS.map((item) => (
+            <NavbarItem
+              key={`nav-${item.label}`}
+              as={Link}
+              href={item.href}
+              className={cn(
+                "text-medium hover:text-blue-700",
+                isTransparent ? "text-white" : "text-white",
+                {
+                  "font-bold text-blue-500": pathname === item.href,
+                },
+              )}
+            >
+              {item.label}
+            </NavbarItem>
+          ))}
+        </NavbarContent> */}
+        <NavbarContent className="hidden lg:flex">
+          {NAV_ITEMS.filter((item) => {
+            if (pathname === "/station") {
+              return item.label === "Home" || item.label === "Explore";
+            }
+            return true;
+          }).map((item) => (
             <NavbarItem
               key={`nav-${item.label}`}
               as={Link}
@@ -104,7 +132,7 @@ const NavbarLayout = () => {
         </NavbarContent>
       </div>
       <NavbarContent justify="end">
-        <NavbarMenuToggle className="lg:hidden text-white" />
+        <NavbarMenuToggle className="text-white lg:hidden" />
 
         <NavbarItem className="hidden lg:relative lg:flex">
           <Input

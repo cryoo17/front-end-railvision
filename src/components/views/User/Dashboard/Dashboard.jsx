@@ -19,12 +19,10 @@ const Dashboard = () => {
     handleSubmitForm,
     handleAddPrediction,
     isPendingMutateAddPrediction,
-    isSuccessMutateAddPrediction,
     handleUploadIcon,
     isPendingMutateUploadFile,
     handleDeleteIcon,
     isPendingMutateDeleteFile,
-    handleOnClose,
     preview,
   } = useDashboard();
 

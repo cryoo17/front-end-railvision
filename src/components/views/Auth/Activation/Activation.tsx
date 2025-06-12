@@ -1,14 +1,10 @@
 "use client";
 
-import { Button } from "@nextui-org/react";
-import { useRouter } from "next/navigation";
-
 interface PropTypes {
   status: "success" | "failed";
 }
 
 const Activation = (props: PropTypes) => {
-  const router = useRouter();
   const { status } = props;
 
   return (
@@ -22,14 +18,6 @@ const Activation = (props: PropTypes) => {
             ? "Terima kasih telah mengaktifkan akun Anda!"
             : "Kode aktifasi tidak valid"}
         </p>
-        <Button
-          className="mt-4 w-fit"
-          variant="bordered"
-          color="primary"
-          onPress={() => router.push("/")}
-        >
-          Kembali ke home
-        </Button>
       </div>
     </div>
   );
