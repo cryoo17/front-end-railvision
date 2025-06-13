@@ -10,7 +10,7 @@ RailVision adalah aplikasi AI berbasis web yang dirancang untuk mendeteksi dan m
 3. Buka folder project model-railvision
 4. Jalankan di terminal 'npm install'
 5. Jalankan di terminal 'npm run dev' untuk menjalankan server di lokal
-6. Buka URL front-end-railvision.vercel.app/
+6. Buka URL https://front-end-railvision.vercel.app/
 
 ## Tech Stack
 
