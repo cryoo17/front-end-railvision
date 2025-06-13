@@ -37,7 +37,7 @@ const useDashboard = () => {
     control,
     handleSubmit: handleSubmitForm,
     formState: { errors },
-    reset,
+    // reset,
     watch,
     getValues,
     setValue,
